@@ -1,436 +1,838 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Seta di Mezzanotte — Italian luxury nightwear, silk nightgowns, robes, pajamas and loungewear.">
-<title>Seta di Mezzanotte | The Art of Night</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>SETA DI MEZZANOTTE — Italian Luxury Nightwear</title>
+<meta name="description" content="SETA DI MEZZANOTTE — Italian luxury nightwear. The art of night.">
 
 <style>
-:root{
-  --black:#070707;
-  --black2:#0d0d0d;
-  --panel:#111111;
-  --cream:#f4efe7;
-  --muted:#aaa39a;
-  --gold:#c9a87c;
-  --line:rgba(201,168,124,.18);
-}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--cream);font-family:Inter,sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080808;
+    color:#f5f2ed;
+    overflow-x:hidden
+}
 a{color:inherit;text-decoration:none}
 button{font:inherit}
-img{display:block;max-width:100%}
 
 .header{
-  position:fixed;top:0;left:0;width:100%;z-index:1000;
-  padding:18px 34px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-  transition:.35s;border-bottom:1px solid transparent;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:50;
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 42px;
+    color:white;
+    mix-blend-mode:difference;
 }
-.header.scrolled{background:rgba(7,7,7,.94);backdrop-filter:blur(14px);border-color:var(--line)}
-.logo{justify-self:start;display:flex;align-items:center;gap:11px;letter-spacing:.24em;text-transform:uppercase;font-family:"Cormorant Garamond",serif;font-size:18px}
-.logo-mark{width:31px;height:31px}
-.main-nav{display:flex;gap:32px;list-style:none}
-.main-nav a,.header-action{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:rgba(244,239,231,.78);transition:.25s}
-.main-nav a:hover,.header-action:hover{color:var(--gold)}
-.header-actions{justify-self:end;display:flex;align-items:center;gap:20px}
-.header-action{background:none;border:0;cursor:pointer}
-.cart-count{color:var(--gold);margin-left:4px}
+.logo{
+    font-family:Georgia,serif;
+    font-size:17px;
+    letter-spacing:4px;
+    white-space:nowrap
+}
+.nav{
+    display:flex;
+    gap:32px;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase
+}
+.nav a{transition:opacity .3s}
+.nav a:hover{opacity:.55}
+.menu{
+    display:none;
+    font-size:11px;
+    letter-spacing:2px
+}
 
+/* HERO */
 .hero{
-  position:relative;height:100vh;min-height:720px;overflow:hidden;background:#030303;
-  display:flex;align-items:flex-end;justify-content:center;
+    height:100vh;
+    min-height:680px;
+    position:relative;
+    overflow:hidden;
+    background:#111
 }
-.hero-video{position:absolute;inset:0;overflow:hidden}
-.hero-video video{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
-  filter:brightness(.62) contrast(1.06);transform:scale(1.015);
+.hero video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+    filter:brightness(.67) contrast(1.05)
 }
-.hero-video:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.58),rgba(0,0,0,.08) 35%,rgba(0,0,0,.16) 55%,rgba(0,0,0,.86));
+.hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        180deg,
+        rgba(0,0,0,.25),
+        rgba(0,0,0,.05) 45%,
+        rgba(0,0,0,.65)
+    );
+    z-index:1
 }
-.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px 92px;max-width:850px}
-.eyebrow{font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(64px,9vw,128px);font-weight:300;line-height:.82;letter-spacing:.025em}
-.hero-copy{max-width:510px;margin:28px auto 32px;color:#d0cbc3;font-size:14px}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;min-width:210px;padding:14px 26px;
-  border:1px solid rgba(201,168,124,.8);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--cream);transition:.35s;background:transparent;
+.hero-content{
+    position:absolute;
+    z-index:2;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    width:90%
 }
-.btn:hover{background:var(--gold);color:#080808}
-.scroll-note{position:absolute;bottom:27px;left:34px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:#9e988f;z-index:3}
-.scroll-note:after{content:"";display:inline-block;width:48px;height:1px;background:var(--gold);margin:0 0 3px 10px}
-
-.section{padding:105px 34px}
-.section-head{text-align:center;margin-bottom:50px}
-.section-kicker{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:11px}
-.section-title{font-family:"Cormorant Garamond",serif;font-size:clamp(42px,5vw,68px);font-weight:300;line-height:1}
-.section-sub{max-width:530px;margin:18px auto 0;color:var(--muted);font-size:13px}
-
-.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);max-width:1400px;margin:auto;border:1px solid var(--line)}
-.category{
-  min-height:175px;background:var(--black2);display:flex;align-items:flex-end;padding:23px;
-  position:relative;overflow:hidden;transition:.4s;
+.eyebrow{
+    font-size:10px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:25px
 }
-.category:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.86))}
-.category:hover{background:#151515}
-.category-content{position:relative;z-index:1}
-.category span{display:block;color:var(--gold);font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:5px}
-.category h3{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:400}
-.category:nth-child(1){background:linear-gradient(135deg,#16120f,#090909)}
-.category:nth-child(2){background:linear-gradient(135deg,#171717,#0a0a0a)}
-.category:nth-child(3){background:linear-gradient(135deg,#1b1516,#090909)}
-.category:nth-child(4){background:linear-gradient(135deg,#131519,#080808)}
-.category:nth-child(5){background:linear-gradient(135deg,#17130f,#090909)}
-.category:nth-child(6){background:linear-gradient(135deg,#171717,#090909)}
-
-.products-wrap{max-width:1400px;margin:auto}
-.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.product-card{position:relative;background:var(--panel);overflow:hidden;cursor:pointer}
-.product-image{aspect-ratio:3/4;overflow:hidden;background:#151515}
-.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .8s,filter .5s;filter:brightness(.84)}
-.product-card:hover img{transform:scale(1.045);filter:brightness(1)}
-.product-info{padding:17px 4px 5px}
-.product-category{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-.product-name{font-family:"Cormorant Garamond",serif;font-size:24px;margin:3px 0}
-.product-price{font-size:12px;letter-spacing:.08em;color:var(--gold)}
-.product-tag{position:absolute;top:13px;left:13px;border:1px solid var(--gold);padding:5px 9px;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);z-index:2}
-
-.editorial{padding:0;display:grid;grid-template-columns:1fr 1fr;min-height:680px;background:#0b0b0b}
-.editorial-image{min-height:680px;background:
-linear-gradient(90deg,rgba(0,0,0,.04),rgba(0,0,0,.3)),
-url("https://images.pexels.com/photos/15169430/pexels-photo-15169430.jpeg?auto=compress&cs=tinysrgb&w=1800") center/cover}
-.editorial-copy{display:flex;align-items:center;padding:80px clamp(35px,8vw,130px)}
-.editorial-inner{max-width:500px}
-.editorial-inner .section-title{margin-bottom:24px}
-.editorial-inner p{color:var(--muted);font-size:14px;margin-bottom:17px}
-.small-link{display:inline-block;margin-top:14px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--gold);padding-bottom:7px;color:var(--gold)}
-
-.statement{text-align:center;padding:125px 25px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.statement h2{font-family:"Cormorant Garamond",serif;font-size:clamp(42px,6vw,78px);font-weight:300;line-height:1}
-.statement p{color:var(--muted);max-width:570px;margin:23px auto 0;font-size:14px}
-
-.newsletter{padding:90px 25px;text-align:center;background:#0b0b0b}
-.newsletter h2{font-family:"Cormorant Garamond",serif;font-size:48px;font-weight:300}
-.newsletter p{color:var(--muted);font-size:13px;margin:10px auto 25px}
-.newsletter-form{display:flex;max-width:480px;margin:auto;border-bottom:1px solid var(--gold)}
-.newsletter-form input{flex:1;background:transparent;border:0;outline:0;color:var(--cream);padding:13px 0;font-size:12px}
-.newsletter-form button{border:0;background:none;color:var(--gold);font-size:9px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
-
-footer{background:#050505;border-top:1px solid var(--line);padding:65px 34px 25px}
-.footer-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:2fr repeat(3,1fr);gap:50px}
-.footer-brand{font-family:"Cormorant Garamond",serif;font-size:26px;letter-spacing:.15em;text-transform:uppercase}
-.footer-brand small{display:block;font-family:Inter,sans-serif;font-size:9px;letter-spacing:.2em;color:var(--muted);margin-top:8px}
-.footer-col h4{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:17px}
-.footer-col a{display:block;color:#c8c2b9;font-size:12px;margin:8px 0;transition:.2s}
-.footer-col a:hover{color:var(--gold)}
-.footer-bottom{max-width:1400px;margin:55px auto 0;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#777;font-size:9px;letter-spacing:.1em}
-
-.drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.68);z-index:1100;opacity:0;pointer-events:none;transition:.3s}
-.drawer{position:fixed;right:0;top:0;height:100%;width:min(440px,100%);background:#0c0c0c;z-index:1101;transform:translateX(100%);transition:.4s;padding:32px;overflow:auto;border-left:1px solid var(--line)}
-.drawer.open{transform:none}.drawer-backdrop.open{opacity:1;pointer-events:auto}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:25px;border-bottom:1px solid var(--line)}
-.drawer-head h3{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:300}
-.close{border:0;background:none;color:var(--cream);font-size:24px;cursor:pointer}
-.cart-empty{padding:70px 0;text-align:center;color:var(--muted);font-size:13px}
-.cart-row{display:grid;grid-template-columns:75px 1fr auto;gap:15px;align-items:center;padding:17px 0;border-bottom:1px solid var(--line)}
-.cart-row img{width:75px;height:95px;object-fit:cover}.cart-row h4{font-family:"Cormorant Garamond",serif;font-size:20px;font-weight:400}.cart-row p{color:var(--gold);font-size:11px}
-.cart-remove{background:none;border:0;color:#777;cursor:pointer;font-size:10px}
-.cart-total{display:flex;justify-content:space-between;margin:28px 0;font-size:14px}.cart-total strong{color:var(--gold);font-weight:400}
-.search-panel{position:fixed;inset:0;background:rgba(7,7,7,.98);z-index:1200;display:none;padding:110px 7vw}
-.search-panel.open{display:block}.search-close{position:absolute;right:34px;top:25px;background:none;border:0;color:var(--cream);font-size:28px;cursor:pointer}
-.search-input{width:100%;background:none;border:0;border-bottom:1px solid var(--gold);outline:0;color:var(--cream);font-family:"Cormorant Garamond",serif;font-size:clamp(40px,7vw,80px);padding:10px 0}
-.search-results{margin-top:30px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.search-result{color:var(--muted);font-family:"Cormorant Garamond",serif;font-size:24px}
-
-.mobile-menu{display:none;background:none;border:0;color:var(--cream);font-size:22px}
-.mobile-nav{display:none}
-
-@media(max-width:1050px){
-  .main-nav{gap:18px}.categories{grid-template-columns:repeat(3,1fr)}.product-grid{grid-template-columns:repeat(2,1fr)}
+.hero h1{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:clamp(55px,9vw,135px);
+    line-height:.9;
+    letter-spacing:-5px
 }
-@media(max-width:760px){
-  .header{padding:15px 18px;grid-template-columns:1fr auto auto}.main-nav{display:none}.mobile-menu{display:block}.header-actions{gap:12px}.logo-text{font-size:14px}
-  .hero{min-height:650px}.hero-content{padding-bottom:75px}.hero h1{font-size:65px}.hero-copy{font-size:12px}
-  .scroll-note{display:none}.section{padding:75px 18px}.categories{grid-template-columns:repeat(2,1fr)}
-  .product-grid{grid-template-columns:1fr 1fr;gap:11px}.product-name{font-size:20px}
-  .editorial{grid-template-columns:1fr}.editorial-image{min-height:500px}.editorial-copy{padding:65px 25px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:35px}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:8px}
-  .search-results{grid-template-columns:1fr 1fr}
+.hero p{
+    margin-top:30px;
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-size:17px
 }
-@media(max-width:480px){
-  .product-grid{grid-template-columns:1fr}.categories{grid-template-columns:1fr 1fr}.category{min-height:140px}.footer-grid{grid-template-columns:1fr}
+.hero-btn{
+    display:inline-block;
+    margin-top:35px;
+    border-bottom:1px solid white;
+    padding-bottom:8px;
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase
+}
+
+/* INTRO */
+.intro{
+    background:#f0ede8;
+    color:#111;
+    padding:120px 8vw;
+    text-align:center
+}
+.intro small{
+    font-size:9px;
+    letter-spacing:4px;
+    text-transform:uppercase
+}
+.intro h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:clamp(35px,5vw,70px);
+    line-height:1;
+    max-width:900px;
+    margin:25px auto
+}
+.intro p{
+    max-width:550px;
+    margin:auto;
+    color:#555;
+    line-height:1.8;
+    font-size:13px
+}
+
+/* PRODUCTS */
+.product-section{
+    background:#f0ede8;
+    color:#111;
+    padding:0 4vw 100px
+}
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    padding:0 1vw 35px
+}
+.section-title h2{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:40px
+}
+.section-title span{
+    font-size:9px;
+    letter-spacing:2px;
+    text-transform:uppercase
+}
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px
+}
+.product{
+    cursor:pointer
+}
+.product-image{
+    aspect-ratio:3/4;
+    overflow:hidden;
+    background:#ddd
+}
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .8s cubic-bezier(.2,.7,.2,1)
+}
+.product:hover img{transform:scale(1.045)}
+.product-info{
+    padding:14px 3px 25px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    font-size:10px;
+    letter-spacing:1px;
+    text-transform:uppercase
+}
+.price{white-space:nowrap}
+
+/* EDITORIAL BANNERS */
+.editorial{
+    height:92vh;
+    min-height:620px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white
+}
+.editorial-bg{
+    position:absolute;
+    inset:0;
+    background-size:cover;
+    background-position:center;
+    transition:transform 1.2s ease
+}
+.editorial:hover .editorial-bg{transform:scale(1.025)}
+.editorial:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.32)
+}
+.editorial-content{
+    position:relative;
+    z-index:2
+}
+.editorial small{
+    font-size:9px;
+    letter-spacing:5px;
+    text-transform:uppercase
+}
+.editorial h2{
+    font-family:Georgia,serif;
+    font-size:clamp(50px,8vw,110px);
+    font-weight:400;
+    line-height:.9;
+    margin:25px 0
+}
+.editorial p{
+    font-family:Georgia,serif;
+    font-style:italic;
+    font-size:17px
+}
+.discover{
+    display:inline-block;
+    margin-top:30px;
+    border-bottom:1px solid white;
+    padding-bottom:8px;
+    font-size:9px;
+    letter-spacing:3px;
+    text-transform:uppercase
+}
+
+/* STORY */
+.story{
+    background:#0a0a0a;
+    padding:150px 9vw;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:100px;
+    align-items:center
+}
+.story h2{
+    font-family:Georgia,serif;
+    font-size:clamp(45px,6vw,80px);
+    font-weight:400;
+    line-height:.95
+}
+.story p{
+    color:#aaa;
+    font-size:13px;
+    line-height:2;
+    max-width:470px
+}
+.story-label{
+    color:#888;
+    font-size:9px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:25px
+}
+
+/* NEWSLETTER */
+.newsletter{
+    background:#e9e5df;
+    color:#111;
+    text-align:center;
+    padding:120px 30px
+}
+.newsletter h2{
+    font-family:Georgia,serif;
+    font-size:55px;
+    font-weight:400
+}
+.newsletter p{
+    margin:20px auto 35px;
+    color:#555;
+    font-size:12px
+}
+.newsletter form{
+    display:flex;
+    max-width:480px;
+    margin:auto;
+    border-bottom:1px solid #222
+}
+.newsletter input{
+    flex:1;
+    border:0;
+    background:none;
+    padding:15px 0;
+    outline:0;
+    font-size:12px
+}
+.newsletter button{
+    border:0;
+    background:none;
+    cursor:pointer;
+    font-size:9px;
+    letter-spacing:2px
+}
+
+/* FOOTER */
+footer{
+    background:#050505;
+    padding:70px 5vw 30px;
+    color:#888
+}
+.footer-top{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:50px;
+    padding-bottom:80px
+}
+.footer-brand{
+    font-family:Georgia,serif;
+    font-size:24px;
+    color:white
+}
+footer h4{
+    color:white;
+    font-size:9px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:20px
+}
+footer a{
+    display:block;
+    font-size:10px;
+    margin-bottom:12px
+}
+.footer-bottom{
+    border-top:1px solid #222;
+    padding-top:25px;
+    display:flex;
+    justify-content:space-between;
+    font-size:9px;
+    letter-spacing:1px
+}
+
+@media(max-width:800px){
+    .header{padding:0 20px;height:65px}
+    .nav{display:none}
+    .menu{display:block}
+    .logo{font-size:13px;letter-spacing:3px}
+    .hero h1{letter-spacing:-2px}
+    .intro{padding:90px 25px}
+    .products{grid-template-columns:repeat(2,1fr)}
+    .section-title h2{font-size:30px}
+    .editorial{height:75vh;min-height:500px}
+    .editorial h2{font-size:58px}
+    .story{
+        grid-template-columns:1fr;
+        gap:50px;
+        padding:100px 25px
+    }
+    .footer-top{grid-template-columns:1fr 1fr}
+    .newsletter h2{font-size:42px}
 }
 </style>
 </head>
 
 <body>
 
-<header class="header" id="header">
-  <a class="logo" href="#">
-    <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
-      <circle cx="20" cy="20" r="18" stroke="#c9a87c"/>
-      <path d="M22 8C14 10 10 18 12 26c4-4 10-6 14-12-2-4-4-6-4-6Z" fill="#c9a87c"/>
-      <path d="M18 28q2-6 8-8" stroke="#c9a87c" stroke-width="1.2"/>
-    </svg>
-    <span class="logo-text">Seta di Mezzanotte</span>
-  </a>
+<header class="header">
+    <a href="#" class="logo">SETA DI MEZZANOTTE</a>
 
-  <nav>
-    <ul class="main-nav">
-      <li><a href="#collections">Collections</a></li>
-      <li><a href="#new">New In</a></li>
-      <li><a href="#house">The House</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <nav class="nav">
+        <a href="#new">New Arrivals</a>
+        <a href="#nightgowns">Nightgowns</a>
+        <a href="#chemises">Chemises</a>
+        <a href="#robes">Robes</a>
+        <a href="#pajamas">Pajamas</a>
+        <a href="#story">The House</a>
+    </nav>
 
-  <div class="header-actions">
-    <button class="header-action" id="searchBtn" aria-label="Search">Search</button>
-    <button class="header-action" id="cartBtn" aria-label="Shopping bag">Bag <span class="cart-count" id="cartCount">0</span></button>
-    <button class="mobile-menu" id="mobileMenu">☰</button>
-  </div>
+    <div class="menu">MENU</div>
 </header>
 
-<div class="mobile-nav" id="mobileNav">
-  <a href="#collections">Collections</a>
-  <a href="#new">New In</a>
-  <a href="#house">The House</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<main>
+<!-- HERO VIDEO -->
 <section class="hero">
-  <div class="hero-video">
-    <video id="heroVideo" autoplay muted loop playsinline preload="auto"
-      poster="https://images.pexels.com/photos/15169430/pexels-photo-15169430.jpeg?auto=compress&cs=tinysrgb&w=1800">
-      <!-- Put the downloaded Pexels video here for reliable playback:
-           public/videos/hero-nightwear.mp4 -->
-      <source src="/videos/hero-nightwear.mp4" type="video/mp4">
-      <!-- Online fallback -->
-      <source src="https://videos.pexels.com/video-files/10069456/10069456-hd_1920_1080_25fps.mp4" type="video/mp4">
+    <video
+        id="heroVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="">
+        <source src="./videos/hero-nightwear.mp4" type="video/mp4">
     </video>
-  </div>
-  <div class="hero-content">
-    <div class="eyebrow">Autumn / Winter · 2026</div>
-    <h1>The Art<br>of Night</h1>
-    <p class="hero-copy">Italian-inspired luxury nightwear for the quiet hours. Silk nightgowns, robes, pajamas and loungewear designed around the ritual of night.</p>
-    <a class="btn" href="#new">Discover the collection</a>
-  </div>
-  <div class="scroll-note">Scroll to explore</div>
-</section>
 
-<section class="section" id="collections">
-  <div class="section-head">
-    <div class="section-kicker">Explore the world</div>
-    <h2 class="section-title">Collections</h2>
-    <p class="section-sub">A wardrobe for every hour after dark.</p>
-  </div>
-
-  <div class="categories">
-    <a class="category" href="#new"><div class="category-content"><span>01</span><h3>Nightgowns</h3></div></a>
-    <a class="category" href="#new"><div class="category-content"><span>02</span><h3>Chemises</h3></div></a>
-    <a class="category" href="#new"><div class="category-content"><span>03</span><h3>Robes</h3></div></a>
-    <a class="category" href="#new"><div class="category-content"><span>04</span><h3>Pajamas</h3></div></a>
-    <a class="category" href="#new"><div class="category-content"><span>05</span><h3>Loungewear</h3></div></a>
-    <a class="category" href="#new"><div class="category-content"><span>06</span><h3>Silk Sets</h3></div></a>
-  </div>
-</section>
-
-<section class="section" id="new">
-  <div class="section-head">
-    <div class="section-kicker">The latest chapter</div>
-    <h2 class="section-title">New Arrivals</h2>
-    <p class="section-sub">Signature silhouettes in silk, satin and lace.</p>
-  </div>
-
-  <div class="products-wrap">
-    <div class="product-grid" id="productGrid"></div>
-  </div>
-</section>
-
-<section class="editorial" id="house">
-  <div class="editorial-image"></div>
-  <div class="editorial-copy">
-    <div class="editorial-inner">
-      <div class="section-kicker">The House of Seta</div>
-      <h2 class="section-title">Where silk meets the quiet of night.</h2>
-      <p>Seta di Mezzanotte is a dark, modern vision of nightwear: sensual without excess, refined without effort.</p>
-      <p>Our collections are inspired by Italian evenings, old-world ateliers and the feeling of slipping into something made only for yourself.</p>
-      <a class="small-link" href="#contact">Discover our story</a>
+    <div class="hero-content">
+        <div class="eyebrow">Italian Luxury Nightwear</div>
+        <h1>The Art<br>of Night</h1>
+        <p>Silk. Shadow. Desire.</p>
+        <a href="#new" class="hero-btn">Discover the collection</a>
     </div>
-  </div>
 </section>
 
-<section class="statement">
-  <div class="section-kicker">Seta di Mezzanotte</div>
-  <h2>Made for the hours<br>that belong to you.</h2>
-  <p>Midnight silk. Soft light. Slow evenings. A private kind of luxury.</p>
+<!-- INTRO -->
+<section class="intro">
+    <small>SETA DI MEZZANOTTE — MILANO / ITALIA</small>
+    <h2>Where Italian elegance meets the intimacy of night.</h2>
+    <p>
+        A collection of refined nightwear crafted for the hours
+        when the world becomes quiet. Italian silhouettes,
+        luminous silk and timeless femininity.
+    </p>
 </section>
 
-<section class="newsletter" id="contact">
-  <div class="section-kicker">The midnight letter</div>
-  <h2>Enter the world of Seta</h2>
-  <p>New collections, private releases and stories from the house.</p>
-  <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for joining Seta di Mezzanotte.');">
-    <input type="email" placeholder="Your email address" required>
-    <button type="submit">Subscribe</button>
-  </form>
+<!-- NEW ARRIVALS -->
+<section class="product-section" id="new">
+    <div class="section-title">
+        <h2>New Arrivals</h2>
+        <span>Discover the latest collection</span>
+    </div>
+
+    <div class="products">
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85" alt="Silk nightgown">
+            </div>
+            <div class="product-info">
+                <span>Midnight Silk Gown</span>
+                <span class="price">€290</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1000&q=85" alt="Luxury silk dress">
+            </div>
+            <div class="product-info">
+                <span>Roma Silk Chemise</span>
+                <span class="price">€240</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85" alt="Luxury robe">
+            </div>
+            <div class="product-info">
+                <span>Notte Robe</span>
+                <span class="price">€420</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1000&q=85" alt="Luxury nightwear">
+            </div>
+            <div class="product-info">
+                <span>Milano Silk Set</span>
+                <span class="price">€360</span>
+            </div>
+        </article>
+
+    </div>
 </section>
-</main>
+
+<!-- NIGHTGOWNS EDITORIAL -->
+<section class="editorial" id="nightgowns">
+    <div class="editorial-bg"
+        style="background-image:url('https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=2200&q=90')">
+    </div>
+
+    <div class="editorial-content">
+        <small>01 — THE COLLECTION</small>
+        <h2>Nightgowns</h2>
+        <p>Long silhouettes. Liquid silk. Midnight elegance.</p>
+        <a href="#" class="discover">Discover Nightgowns</a>
+    </div>
+</section>
+
+<section class="product-section">
+    <div class="section-title">
+        <h2>Nightgowns</h2>
+        <span>Italian silk collection</span>
+    </div>
+
+    <div class="products">
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Seta Nera Gown</span>
+                <span class="price">€310</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Venezia Gown</span>
+                <span class="price">€340</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Luna Gown</span>
+                <span class="price">€295</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Firenze Gown</span>
+                <span class="price">€380</span>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- CHEMISES -->
+<section class="editorial" id="chemises">
+    <div class="editorial-bg"
+        style="background-image:url('https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=2200&q=90')">
+    </div>
+
+    <div class="editorial-content">
+        <small>02 — THE COLLECTION</small>
+        <h2>Chemises</h2>
+        <p>Silk after dark.</p>
+        <a href="#" class="discover">Discover Chemises</a>
+    </div>
+</section>
+
+<section class="product-section">
+    <div class="section-title">
+        <h2>Chemises</h2>
+        <span>Delicate silhouettes</span>
+    </div>
+
+    <div class="products">
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Seta Bianca</span>
+                <span class="price">€220</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Notte Chemise</span>
+                <span class="price">€250</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Amalfi Silk</span>
+                <span class="price">€270</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Roma Lace</span>
+                <span class="price">€260</span>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- ROBES -->
+<section class="editorial" id="robes">
+    <div class="editorial-bg"
+        style="background-image:url('https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=2200&q=90')">
+    </div>
+
+    <div class="editorial-content">
+        <small>03 — THE COLLECTION</small>
+        <h2>Robes</h2>
+        <p>The art of draping.</p>
+        <a href="#" class="discover">Discover Robes</a>
+    </div>
+</section>
+
+<section class="product-section">
+    <div class="section-title">
+        <h2>Robes</h2>
+        <span>Luxury layers</span>
+    </div>
+
+    <div class="products">
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Milano Robe</span>
+                <span class="price">€420</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Seta Lunga</span>
+                <span class="price">€450</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Venezia Robe</span>
+                <span class="price">€390</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Notte Lunga</span>
+                <span class="price">€430</span>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- PAJAMAS -->
+<section class="editorial" id="pajamas">
+    <div class="editorial-bg"
+        style="background-image:url('https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=2200&q=90')">
+    </div>
+
+    <div class="editorial-content">
+        <small>04 — THE COLLECTION</small>
+        <h2>Pajamas</h2>
+        <p>Night in Milano.</p>
+        <a href="#" class="discover">Discover Pajamas</a>
+    </div>
+</section>
+
+<section class="product-section">
+    <div class="section-title">
+        <h2>Pajamas</h2>
+        <span>Tailored for the night</span>
+    </div>
+
+    <div class="products">
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Milano Pajama</span>
+                <span class="price">€330</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Seta Stripe</span>
+                <span class="price">€350</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Roma Pajama</span>
+                <span class="price">€320</span>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=85">
+            </div>
+            <div class="product-info">
+                <span>Notte Set</span>
+                <span class="price">€370</span>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+    <div>
+        <div class="story-label">The House of Seta</div>
+        <h2>Made for the hours that belong only to you.</h2>
+    </div>
+
+    <div>
+        <p>
+            SETA DI MEZZANOTTE was born from a fascination with
+            Italian nights — the soft glow of Milano streets,
+            the quiet of a Venetian room and the timeless
+            sensuality of silk against skin.
+            <br><br>
+            Every silhouette is designed as an invitation to slow
+            down, disappear from the world and enter your own.
+        </p>
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+    <h2>Enter the Night</h2>
+    <p>Receive private access to new collections and stories from the house.</p>
+
+    <form onsubmit="event.preventDefault(); alert('Thank you for joining SETA DI MEZZANOTTE.');">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">SUBSCRIBE</button>
+    </form>
+</section>
 
 <footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand">Seta di Mezzanotte<small>Luxury Nightwear</small></div>
+    <div class="footer-top">
+
+        <div>
+            <div class="footer-brand">SETA DI MEZZANOTTE</div>
+        </div>
+
+        <div>
+            <h4>Collections</h4>
+            <a href="#nightgowns">Nightgowns</a>
+            <a href="#chemises">Chemises</a>
+            <a href="#robes">Robes</a>
+            <a href="#pajamas">Pajamas</a>
+        </div>
+
+        <div>
+            <h4>House</h4>
+            <a href="#story">Our Story</a>
+            <a href="#">Journal</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div>
+            <h4>Follow</h4>
+            <a href="#">Instagram</a>
+            <a href="#">Pinterest</a>
+            <a href="#">TikTok</a>
+        </div>
+
     </div>
-    <div class="footer-col">
-      <h4>Collections</h4>
-      <a href="#collections">Nightgowns</a><a href="#collections">Robes</a><a href="#collections">Pajamas</a><a href="#collections">Loungewear</a>
+
+    <div class="footer-bottom">
+        <span>© 2026 SETA DI MEZZANOTTE</span>
+        <span>MILANO · ITALIA</span>
     </div>
-    <div class="footer-col">
-      <h4>Client Services</h4>
-      <a href="#">Shipping & Returns</a><a href="#">Size Guide</a><a href="#">Silk Care</a><a href="#">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h4>Follow</h4>
-      <a href="#">Instagram</a><a href="#">Pinterest</a><a href="mailto:hello@setadimezzanotte.com">Email</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Seta di Mezzanotte</span>
-    <span>Prices shown in EUR · All rights reserved</span>
-  </div>
 </footer>
 
-<div class="drawer-backdrop" id="backdrop"></div>
-<aside class="drawer" id="cartDrawer">
-  <div class="drawer-head"><h3>Your Bag</h3><button class="close" id="closeCart">×</button></div>
-  <div id="cartItems"></div>
-</aside>
-
-<div class="search-panel" id="searchPanel">
-  <button class="search-close" id="closeSearch">×</button>
-  <div class="section-kicker">Search the collection</div>
-  <input class="search-input" id="searchInput" placeholder="Search...">
-  <div class="search-results" id="searchResults"></div>
-</div>
-
 <script>
-const products = [
-  {
-    name:"Midnight Silk Chemise", category:"Nightgowns", price:290, tag:"Signature",
-    image:"https://images.pexels.com/photos/15169430/pexels-photo-15169430.jpeg?auto=compress&cs=tinysrgb&w=1200"
-  },
-  {
-    name:"Notte Silk Robe", category:"Robes", price:390, tag:"New",
-    image:"https://images.pexels.com/photos/6976440/pexels-photo-6976440.jpeg?auto=compress&cs=tinysrgb&w=1200"
-  },
-  {
-    name:"Luna Satin Slip", category:"Chemises", price:240, tag:"",
-    image:"https://images.pexels.com/photos/8626068/pexels-photo-8626068.jpeg?auto=compress&cs=tinysrgb&w=1200"
-  },
-  {
-    name:"Sogno Silk Nightdress", category:"Nightgowns", price:450, tag:"Limited",
-    image:"https://images.pexels.com/photos/5690222/pexels-photo-5690222.jpeg?auto=compress&cs=tinysrgb&w=1200"
-  },
-  {
-    name:"Eclipse Lace Gown", category:"Lace Nightwear", price:490, tag:"New",
-    image:"https://images.pexels.com/photos/11095772/pexels-photo-11095772.jpeg?auto=compress&cs=tinysrgb&w=1200"
-  },
-  {
-    name:"Aurelia Silk Pajama Set", category:"Pajamas", price:520, tag:"",
-    image:"https://images.pexels.com/photos/8747015/pexels-photo-8747015.jpeg?auto=compress&cs=tinysrgb&w=1200"
-  },
-  {
-    name:"Nero Long Robe", category:"Robes", price:590, tag:"Signature",
-    image:"https://images.pexels.com/photos/6976706/pexels-photo-6976706.jpeg?auto=compress&cs=tinysrgb&w=1200"
-  },
-  {
-    name:"Luna Silk Lounge Set", category:"Loungewear", price:430, tag:"",
-    image:"https://images.pexels.com/photos/6451095/pexels-photo-6451095.jpeg?auto=compress&cs=tinysrgb&w=1200"
-  }
-];
+const video = document.getElementById("heroVideo");
 
-const euro = n => new Intl.NumberFormat("en-IE",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);
+if(video){
+    video.muted = true;
 
-let cart = JSON.parse(localStorage.getItem("setaCart") || "[]");
+    const startVideo = () => {
+        video.play().catch(() => {});
+    };
 
-function renderProducts(list=products){
-  document.getElementById("productGrid").innerHTML = list.map((p,i)=>`
-    <article class="product-card" onclick="addToCart(${i})">
-      ${p.tag ? `<div class="product-tag">${p.tag}</div>` : ""}
-      <div class="product-image"><img src="${p.image}" alt="${p.name}" loading="${i>3?'lazy':'eager'}"></div>
-      <div class="product-info">
-        <div class="product-category">${p.category}</div>
-        <div class="product-name">${p.name}</div>
-        <div class="product-price">${euro(p.price)}</div>
-      </div>
-    </article>
-  `).join("");
+    startVideo();
+    video.addEventListener("loadeddata", startVideo);
+
+    document.addEventListener("visibilitychange", () => {
+        if(!document.hidden) startVideo();
+    });
 }
-renderProducts();
-
-function saveCart(){localStorage.setItem("setaCart",JSON.stringify(cart));}
-function addToCart(index){
-  cart.push(products[index]);
-  saveCart(); updateCart();
-  document.getElementById("cartDrawer").classList.add("open");
-  document.getElementById("backdrop").classList.add("open");
-}
-function removeFromCart(index){cart.splice(index,1);saveCart();updateCart();}
-function updateCart(){
-  document.getElementById("cartCount").textContent=cart.length;
-  const box=document.getElementById("cartItems");
-  if(!cart.length){box.innerHTML='<div class="cart-empty">Your bag is currently empty.</div>';return;}
-  box.innerHTML=cart.map((p,i)=>`
-    <div class="cart-row">
-      <img src="${p.image}" alt="">
-      <div><h4>${p.name}</h4><p>${euro(p.price)}</p></div>
-      <button class="cart-remove" onclick="removeFromCart(${i})">REMOVE</button>
-    </div>`).join("")+
-    `<div class="cart-total"><span>Total</span><strong>${euro(cart.reduce((s,p)=>s+p.price,0))}</strong></div>
-     <a href="#" class="btn" style="width:100%">Checkout</a>`;
-}
-updateCart();
-
-const header=document.getElementById("header");
-window.addEventListener("scroll",()=>header.classList.toggle("scrolled",scrollY>40));
-
-const cartDrawer=document.getElementById("cartDrawer");
-const backdrop=document.getElementById("backdrop");
-document.getElementById("cartBtn").onclick=()=>{cartDrawer.classList.add("open");backdrop.classList.add("open");};
-document.getElementById("closeCart").onclick=()=>{cartDrawer.classList.remove("open");backdrop.classList.remove("open");};
-backdrop.onclick=()=>{cartDrawer.classList.remove("open");backdrop.classList.remove("open");};
-
-const searchPanel=document.getElementById("searchPanel");
-const searchInput=document.getElementById("searchInput");
-document.getElementById("searchBtn").onclick=()=>{searchPanel.classList.add("open");setTimeout(()=>searchInput.focus(),100);};
-document.getElementById("closeSearch").onclick=()=>searchPanel.classList.remove("open");
-
-searchInput.addEventListener("input",()=>{
-  const q=searchInput.value.toLowerCase().trim();
-  const found=products.filter(p=>(p.name+" "+p.category).toLowerCase().includes(q));
-  document.getElementById("searchResults").innerHTML=(q?found:products.slice(0,4)).map(p=>
-    `<div class="search-result">${p.name}<small style="display:block;color:#c9a87c;font-family:Inter;font-size:10px">${euro(p.price)}</small></div>`
-  ).join("");
-});
-
-document.getElementById("mobileMenu").onclick=()=>{
-  const n=document.getElementById("mobileNav");
-  n.style.display=n.style.display==="flex"?"none":"flex";
-};
-document.querySelectorAll(".mobile-nav a").forEach(a=>a.onclick=()=>document.getElementById("mobileNav").style.display="none");
-
-const video=document.getElementById("heroVideo");
-video.muted=true;
-video.play().catch(()=>{});
 </script>
+
 </body>
 </html>
