@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seta di Mezzanotte | Luxury Silk</title>
+  <title>Seta di Mezzanotte | Luxury Silk Lingerie</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -13,20 +13,13 @@
       --bg-elevated: #111111;
       --text: #f5f0e8;
       --text-muted: #a89f94;
-      --accent: #c9a87c;          /* warm gold */
+      --accent: #c9a87c;
       --accent-soft: #8a7355;
       --border: rgba(201, 168, 124, 0.15);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
@@ -40,11 +33,9 @@
     /* ========== NAV ========== */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      top: 0; left: 0; width: 100%;
       z-index: 100;
-      padding: 1.5rem 3rem;
+      padding: 1.2rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -59,56 +50,118 @@
     }
 
     .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 400;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
       text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+    }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
-      gap: 2.8rem;
+      gap: 2.4rem;
       list-style: none;
     }
 
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       transition: color 0.3s;
     }
 
-    .nav-links a:hover {
-      color: var(--accent);
-    }
+    .nav-links a:hover { color: var(--accent); }
 
     .nav-right {
       display: flex;
-      gap: 1.8rem;
+      gap: 1.4rem;
       align-items: center;
     }
 
+    /* Language switcher */
+    .lang-switcher {
+      position: relative;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.3s;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 0.4rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      min-width: 140px;
+      display: none;
+      z-index: 200;
+    }
+
+    .lang-dropdown.open { display: block; }
+
+    .lang-dropdown button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      padding: 0.65rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-dropdown button:hover,
+    .lang-dropdown button.active {
+      background: rgba(201,168,124,0.1);
+      color: var(--accent);
+    }
+
     .nav-icon {
-      width: 20px;
-      height: 20px;
+      width: 20px; height: 20px;
       stroke: var(--text-muted);
       cursor: pointer;
       transition: stroke 0.3s;
     }
-
-    .nav-icon:hover {
-      stroke: var(--accent);
-    }
+    .nav-icon:hover { stroke: var(--accent); }
 
     /* ========== HERO ========== */
     .hero {
       height: 100vh;
-      min-height: 700px;
+      min-height: 680px;
       position: relative;
       display: flex;
       align-items: flex-end;
@@ -119,63 +172,61 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: 
-        linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 40%, rgba(10,10,10,0.15) 100%),
-        url('https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=2070') center/cover no-repeat;
-      transform: scale(1.05);
-      transition: transform 8s ease-out;
+      background:
+        linear-gradient(to top, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.2) 100%),
+        url('https://images.unsplash.com/photo-1563906267088-b029e7101114?q=80&w=2070') center/cover no-repeat;
+      transform: scale(1.04);
+      transition: transform 9s ease-out;
     }
 
-    .hero:hover .hero-bg {
-      transform: scale(1);
-    }
+    .hero:hover .hero-bg { transform: scale(1); }
 
     .hero-content {
       position: relative;
       z-index: 2;
       text-align: center;
-      padding-bottom: 8rem;
-      max-width: 900px;
+      padding-bottom: 7.5rem;
+      max-width: 860px;
     }
 
     .hero-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.4em;
+      font-size: 0.72rem;
+      letter-spacing: 0.38em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
       opacity: 0;
       animation: fadeUp 1s 0.3s forwards;
     }
 
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.2rem, 7vw, 5.8rem);
+      font-size: clamp(3rem, 6.5vw, 5.4rem);
       font-weight: 300;
       line-height: 1.05;
-      letter-spacing: 0.04em;
-      margin-bottom: 1.8rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.6rem;
       opacity: 0;
       animation: fadeUp 1s 0.5s forwards;
     }
 
     .hero p {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--text-muted);
-      max-width: 480px;
-      margin: 0 auto 2.8rem;
+      max-width: 460px;
+      margin: 0 auto 2.6rem;
       opacity: 0;
       animation: fadeUp 1s 0.7s forwards;
     }
 
     .btn {
       display: inline-block;
-      padding: 1.05rem 2.6rem;
+      padding: 1rem 2.5rem;
       border: 1px solid var(--accent);
       color: var(--accent);
       text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       transition: all 0.4s;
       opacity: 0;
@@ -187,41 +238,35 @@
       color: var(--bg);
     }
 
-    /* ========== SECTION COMMON ========== */
-    section {
-      padding: 7rem 3rem;
-    }
+    /* ========== SECTIONS ========== */
+    section { padding: 6.5rem 2.5rem; }
 
     .section-header {
       text-align: center;
-      margin-bottom: 4.5rem;
+      margin-bottom: 4rem;
     }
 
     .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.35em;
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
     }
 
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-size: clamp(2.1rem, 3.8vw, 3rem);
       font-weight: 300;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
     }
 
-    /* ========== FEATURED PRODUCTS (velké karty) ========== */
-    .products {
-      background: var(--bg);
-    }
-
+    /* ========== PRODUCTS ========== */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      max-width: 1400px;
+      gap: 1.8rem;
+      max-width: 1280px;
       margin: 0 auto;
     }
 
@@ -242,60 +287,56 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    .product-card:hover .product-img {
-      transform: scale(1.06);
-    }
+    .product-card:hover .product-img { transform: scale(1.05); }
 
     .product-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 55%);
+      background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, transparent 55%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 2.5rem;
+      padding: 2.2rem;
       opacity: 0;
-      transition: opacity 0.5s;
+      transition: opacity 0.45s;
     }
 
-    .product-card:hover .product-overlay {
-      opacity: 1;
-    }
+    .product-card:hover .product-overlay { opacity: 1; }
 
     .product-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.7rem;
+      font-size: 1.55rem;
       font-weight: 400;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
     .product-price {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--accent);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
     }
 
     .product-tag {
       position: absolute;
-      top: 1.5rem;
-      left: 1.5rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      top: 1.3rem;
+      left: 1.3rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent);
       border: 1px solid var(--accent);
-      padding: 0.35rem 0.8rem;
+      padding: 0.3rem 0.7rem;
     }
 
-    /* ========== STORY SECTION ========== */
+    /* ========== STORY ========== */
     .story {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      max-width: 1300px;
+      gap: 4.5rem;
+      max-width: 1200px;
       margin: 0 auto;
       align-items: center;
     }
@@ -306,39 +347,29 @@
       object-fit: cover;
     }
 
-    .story-text .section-label {
-      text-align: left;
-    }
-
-    .story-text .section-title {
-      text-align: left;
-      margin-bottom: 1.8rem;
-    }
+    .story-text .section-label { text-align: left; }
+    .story-text .section-title { text-align: left; margin-bottom: 1.6rem; }
 
     .story-text p {
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-size: 1.02rem;
+      margin-bottom: 1.3rem;
+      font-size: 0.98rem;
     }
 
-    /* ========== COLLECTION STRIP ========== */
-    .collection-strip {
-      padding: 0;
-      overflow: hidden;
-    }
+    /* ========== STRIP ========== */
+    .collection-strip { padding: 0; overflow: hidden; }
 
     .strip-track {
       display: flex;
-      gap: 1.5rem;
-      animation: scroll 40s linear infinite;
+      gap: 1.4rem;
+      animation: scroll 38s linear infinite;
       width: max-content;
     }
 
     .strip-item {
-      width: 320px;
-      height: 420px;
+      width: 300px;
+      height: 400px;
       flex-shrink: 0;
-      position: relative;
       overflow: hidden;
     }
 
@@ -346,99 +377,94 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.85);
-      transition: filter 0.5s;
+      filter: brightness(0.82);
+      transition: filter 0.45s;
     }
 
-    .strip-item:hover img {
-      filter: brightness(1);
-    }
+    .strip-item:hover img { filter: brightness(1); }
 
     /* ========== CTA ========== */
     .cta {
       text-align: center;
-      padding: 9rem 3rem;
-      background: 
-        linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.95)),
-        url('https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=2080') center/cover;
+      padding: 8rem 2.5rem;
+      background:
+        linear-gradient(to bottom, rgba(10,10,10,0.75), rgba(10,10,10,0.95)),
+        url('https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=2080') center/cover;
     }
 
     .cta h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.3rem, 4.5vw, 3.6rem);
       font-weight: 300;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.3rem;
     }
 
     .cta p {
       color: var(--text-muted);
-      max-width: 500px;
-      margin: 0 auto 2.5rem;
+      max-width: 480px;
+      margin: 0 auto 2.3rem;
     }
 
     /* ========== FOOTER ========== */
     footer {
       border-top: 1px solid var(--border);
-      padding: 4rem 3rem 2.5rem;
+      padding: 3.5rem 2.5rem 2.2rem;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 3rem;
-      max-width: 1300px;
-      margin: 0 auto 3rem;
+      gap: 2.8rem;
+      max-width: 1200px;
+      margin: 0 auto 2.5rem;
     }
 
     .footer-brand {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      letter-spacing: 0.2em;
-      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.18em;
+      margin-bottom: 1rem;
     }
 
     .footer-brand span {
       display: block;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
       color: var(--text-muted);
-      margin-top: 0.3rem;
+      margin-top: 0.25rem;
       font-family: 'Inter', sans-serif;
     }
 
     .footer-col h4 {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 1.3rem;
+      margin-bottom: 1.2rem;
     }
 
     .footer-col a {
       display: block;
       color: var(--text);
       text-decoration: none;
-      font-size: 0.9rem;
-      margin-bottom: 0.7rem;
+      font-size: 0.88rem;
+      margin-bottom: 0.6rem;
       transition: color 0.3s;
     }
 
-    .footer-col a:hover {
-      color: var(--accent);
-    }
+    .footer-col a:hover { color: var(--accent); }
 
     .footer-bottom {
       text-align: center;
-      padding-top: 2rem;
+      padding-top: 1.8rem;
       border-top: 1px solid var(--border);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
-      letter-spacing: 0.05em;
     }
 
     /* ========== ANIMATIONS ========== */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(28px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -449,17 +475,18 @@
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.5rem; }
+      nav { padding: 1rem 1.3rem; }
       .nav-links { display: none; }
-      section { padding: 5rem 1.5rem; }
+      section { padding: 4.5rem 1.3rem; }
       .product-grid { grid-template-columns: 1fr; }
       .product-card.large { grid-column: span 1; aspect-ratio: 4/5; }
-      .story { grid-template-columns: 1fr; gap: 3rem; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .story { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 560px) {
       .footer-grid { grid-template-columns: 1fr; }
+      .logo-text { font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -467,14 +494,41 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="#" class="logo">Seta di Mezzanotte</a>
+    <a href="#" class="logo">
+      <!-- Logo mark (crescent + silk) -->
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="#c9a87c" stroke-width="1"/>
+        <path d="M22 8 C14 10 10 18 12 26 C16 22 22 20 26 14 C24 10 22 8 22 8Z" fill="#c9a87c" opacity="0.9"/>
+        <path d="M18 28 Q20 22 26 20" stroke="#c9a87c" stroke-width="1.2" fill="none"/>
+      </svg>
+      <span class="logo-text">Seta di Mezzanotte</span>
+    </a>
+
     <ul class="nav-links">
-      <li><a href="#products">Kolekce</a></li>
-      <li><a href="#story">Příběh</a></li>
-      <li><a href="#">Ateliér</a></li>
-      <li><a href="#">Kontakt</a></li>
+      <li><a href="#products" data-i18n="nav_collection">Kolekce</a></li>
+      <li><a href="#story" data-i18n="nav_story">Příběh</a></li>
+      <li><a href="#" data-i18n="nav_atelier">Ateliér</a></li>
+      <li><a href="#" data-i18n="nav_contact">Kontakt</a></li>
     </ul>
+
     <div class="nav-right">
+      <!-- Language switcher -->
+      <div class="lang-switcher">
+        <button class="lang-btn" id="langBtn">
+          <span id="currentLang">CS</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button data-lang="cs" class="active">Čeština</button>
+          <button data-lang="en">English</button>
+          <button data-lang="de">Deutsch</button>
+          <button data-lang="it">Italiano</button>
+          <button data-lang="fr">Français</button>
+        </div>
+      </div>
+
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5">
         <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
       </svg>
@@ -488,60 +542,60 @@
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <div class="hero-label">Nová kolekce · Podzim / Zima</div>
-      <h1>Hedvábí<br>půlnoci</h1>
-      <p>Kde temnota potkává světlo. Každý kus je utkán z nejjemnějšího hedvábí a noci samotné.</p>
-      <a href="#products" class="btn">Objevit kolekci</a>
+      <div class="hero-label" data-i18n="hero_label">Nová kolekce · Podzim / Zima</div>
+      <h1 data-i18n="hero_title">Hedvábí<br>půlnoci</h1>
+      <p data-i18n="hero_desc">Nejjemnější hedvábné spodní košilky a prádlo. Pro ženy, které milují temnou eleganci.</p>
+      <a href="#products" class="btn" data-i18n="hero_btn">Objevit kolekci</a>
     </div>
   </section>
 
-  <!-- PRODUCTS – silně vyzdvižené -->
+  <!-- PRODUCTS -->
   <section class="products" id="products">
     <div class="section-header">
-      <div class="section-label">Vybrané kousky</div>
-      <h2 class="section-title">Kolekce Mezzanotte</h2>
+      <div class="section-label" data-i18n="products_label">Vybrané kousky</div>
+      <h2 class="section-title" data-i18n="products_title">Hedvábné prádlo</h2>
     </div>
 
     <div class="product-grid">
-      <!-- Velká karta -->
+      <!-- Large -->
       <div class="product-card large">
-        <img class="product-img" src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1600" alt="Midnight Silk Cape">
-        <div class="product-tag">Limitovaná edice</div>
+        <img class="product-img" src="https://images.unsplash.com/photo-1563906267088-b029e7101114?q=80&w=1600" alt="Silk Chemise">
+        <div class="product-tag" data-i18n="tag_limited">Limitovaná edice</div>
         <div class="product-overlay">
-          <div class="product-name">Midnight Cape</div>
-          <div class="product-price">48 900 Kč</div>
+          <div class="product-name" data-i18n="p1_name">Midnight Chemise</div>
+          <div class="product-price">4 890 Kč</div>
         </div>
       </div>
 
       <div class="product-card">
-        <img class="product-img" src="https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=1000" alt="Silk Blouse">
+        <img class="product-img" src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=1000" alt="Silk Camisole">
         <div class="product-overlay">
-          <div class="product-name">Notte Blouse</div>
-          <div class="product-price">18 700 Kč</div>
+          <div class="product-name" data-i18n="p2_name">Notte Camisole</div>
+          <div class="product-price">2 490 Kč</div>
         </div>
       </div>
 
       <div class="product-card">
-        <img class="product-img" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000" alt="Silk Dress">
+        <img class="product-img" src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=1000" alt="Silk Slip">
         <div class="product-overlay">
-          <div class="product-name">Luna Dress</div>
-          <div class="product-price">32 400 Kč</div>
+          <div class="product-name" data-i18n="p3_name">Luna Slip Dress</div>
+          <div class="product-price">3 790 Kč</div>
         </div>
       </div>
 
       <div class="product-card">
-        <img class="product-img" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000" alt="Silk Scarf">
+        <img class="product-img" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000" alt="Silk Shorts">
         <div class="product-overlay">
-          <div class="product-name">Sogno Scarf</div>
-          <div class="product-price">9 800 Kč</div>
+          <div class="product-name" data-i18n="p4_name">Sogno Shorts</div>
+          <div class="product-price">1 890 Kč</div>
         </div>
       </div>
 
       <div class="product-card">
-        <img class="product-img" src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=1000" alt="Silk Trousers">
+        <img class="product-img" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000" alt="Silk Robe">
         <div class="product-overlay">
-          <div class="product-name">Eclipse Trousers</div>
-          <div class="product-price">22 100 Kč</div>
+          <div class="product-name" data-i18n="p5_name">Eclipse Robe</div>
+          <div class="product-price">5 490 Kč</div>
         </div>
       </div>
     </div>
@@ -550,41 +604,41 @@
   <!-- STORY -->
   <section id="story">
     <div class="story">
-      <img class="story-img" src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200" alt="Ateliér">
+      <img class="story-img" src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200" alt="Atelier">
       <div class="story-text">
-        <div class="section-label">Náš příběh</div>
-        <h2 class="section-title">Mezi dnem a nocí</h2>
-        <p>Seta di Mezzanotte vznikla z touhy zachytit okamžik, kdy se den mění v noc – ten prchavý prah, kdy se všechno zpomalí a smysly se otevřou.</p>
-        <p>Každý kus hedvábí prochází rukama italských mistrů. Pracujeme výhradně s přírodním hedvábím nejvyšší kvality a barvíme ho technikami, které respektují temnou krásu půlnoci.</p>
-        <a href="#" class="btn" style="margin-top:1rem">Více o značce</a>
+        <div class="section-label" data-i18n="story_label">Náš příběh</div>
+        <h2 class="section-title" data-i18n="story_title">Mezi dnem a nocí</h2>
+        <p data-i18n="story_p1">Seta di Mezzanotte vznikla z touhy vytvořit hedvábné prádlo, které cítíte i když ho nevidíte. Každá košilka a kalhotky jsou ušity z nejjemnějšího mulberry hedvábí.</p>
+        <p data-i18n="story_p2">Pracujeme s italskými a francouzskými výrobci. Žádné kompromisy v kvalitě – jen temná elegance a pocit luxusu na kůži.</p>
+        <a href="#" class="btn" style="margin-top:0.8rem" data-i18n="story_btn">Více o značce</a>
       </div>
     </div>
   </section>
 
-  <!-- INFINITE STRIP -->
+  <!-- STRIP -->
   <section class="collection-strip">
     <div class="strip-track">
-      <div class="strip-item"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800" alt=""></div>
+      <div class="strip-item"><img src="https://images.unsplash.com/photo-1563906267088-b029e7101114?q=80&w=800" alt=""></div>
+      <div class="strip-item"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800" alt=""></div>
+      <div class="strip-item"><img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=800" alt=""></div>
       <div class="strip-item"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=800" alt=""></div>
-      <!-- duplicity pro plynulý loop -->
-      <div class="strip-item"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800" alt=""></div>
+      <div class="strip-item"><img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800" alt=""></div>
       <div class="strip-item"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800" alt=""></div>
+      <!-- duplicity -->
+      <div class="strip-item"><img src="https://images.unsplash.com/photo-1563906267088-b029e7101114?q=80&w=800" alt=""></div>
+      <div class="strip-item"><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800" alt=""></div>
+      <div class="strip-item"><img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=800" alt=""></div>
       <div class="strip-item"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?q=80&w=800" alt=""></div>
+      <div class="strip-item"><img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800" alt=""></div>
+      <div class="strip-item"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=800" alt=""></div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta">
-    <h2>Vstupte do noci</h2>
-    <p>Objednejte si osobní konzultaci a objevte, který kousek Seta di Mezzanotte je pro vás stvořený.</p>
-    <a href="#" class="btn">Rezervovat termín</a>
+    <h2 data-i18n="cta_title">Vstupte do noci</h2>
+    <p data-i18n="cta_desc">Objevte hedvábné prádlo, které se stane vaší noční rituální záležitostí.</p>
+    <a href="#" class="btn" data-i18n="cta_btn">Prohlédnout kolekci</a>
   </section>
 
   <!-- FOOTER -->
@@ -593,38 +647,260 @@
       <div>
         <div class="footer-brand">
           Seta di Mezzanotte
-          <span>Luxury Silk · Since 2024</span>
+          <span>Luxury Silk Lingerie</span>
         </div>
-        <p style="color:var(--text-muted);font-size:0.9rem;max-width:280px;">
+        <p style="color:var(--text-muted);font-size:0.88rem;max-width:260px;" data-i18n="footer_tagline">
           Hedvábí, které nosí půlnoc.
         </p>
       </div>
       <div class="footer-col">
-        <h4>Navigace</h4>
-        <a href="#products">Kolekce</a>
-        <a href="#story">Příběh</a>
-        <a href="#">Ateliér</a>
-        <a href="#">Kontakt</a>
+        <h4 data-i18n="footer_nav">Navigace</h4>
+        <a href="#products" data-i18n="nav_collection">Kolekce</a>
+        <a href="#story" data-i18n="nav_story">Příběh</a>
+        <a href="#" data-i18n="nav_atelier">Ateliér</a>
+        <a href="#" data-i18n="nav_contact">Kontakt</a>
       </div>
       <div class="footer-col">
-        <h4>Zákazníci</h4>
-        <a href="#">Doprava & vrácení</a>
-        <a href="#">Péče o hedvábí</a>
-        <a href="#">Velikostní tabulka</a>
+        <h4 data-i18n="footer_customer">Zákazníci</h4>
+        <a href="#" data-i18n="footer_shipping">Doprava & vrácení</a>
+        <a href="#" data-i18n="footer_care">Péče o hedvábí</a>
+        <a href="#" data-i18n="footer_size">Velikostní tabulka</a>
       </div>
       <div class="footer-col">
-        <h4>Spojte se</h4>
+        <h4 data-i18n="footer_connect">Spojte se</h4>
         <a href="#">Instagram</a>
         <a href="#">Pinterest</a>
         <a href="mailto:hello@setadimezzanotte.com">Email</a>
       </div>
     </div>
     <div class="footer-bottom">
-      © 2026 Seta di Mezzanotte. Všechna práva vyhrazena.
+      © 2026 Seta di Mezzanotte. <span data-i18n="footer_rights">Všechna práva vyhrazena.</span>
     </div>
   </footer>
 
   <script>
+    // ===== Translations =====
+    const translations = {
+      cs: {
+        nav_collection: "Kolekce",
+        nav_story: "Příběh",
+        nav_atelier: "Ateliér",
+        nav_contact: "Kontakt",
+        hero_label: "Nová kolekce · Podzim / Zima",
+        hero_title: "Hedvábí<br>půlnoci",
+        hero_desc: "Nejjemnější hedvábné spodní košilky a prádlo. Pro ženy, které milují temnou eleganci.",
+        hero_btn: "Objevit kolekci",
+        products_label: "Vybrané kousky",
+        products_title: "Hedvábné prádlo",
+        tag_limited: "Limitovaná edice",
+        p1_name: "Midnight Chemise",
+        p2_name: "Notte Camisole",
+        p3_name: "Luna Slip Dress",
+        p4_name: "Sogno Shorts",
+        p5_name: "Eclipse Robe",
+        story_label: "Náš příběh",
+        story_title: "Mezi dnem a nocí",
+        story_p1: "Seta di Mezzanotte vznikla z touhy vytvořit hedvábné prádlo, které cítíte i když ho nevidíte. Každá košilka a kalhotky jsou ušity z nejjemnějšího mulberry hedvábí.",
+        story_p2: "Pracujeme s italskými a francouzskými výrobci. Žádné kompromisy v kvalitě – jen temná elegance a pocit luxusu na kůži.",
+        story_btn: "Více o značce",
+        cta_title: "Vstupte do noci",
+        cta_desc: "Objevte hedvábné prádlo, které se stane vaší noční rituální záležitostí.",
+        cta_btn: "Prohlédnout kolekci",
+        footer_tagline: "Hedvábí, které nosí půlnoc.",
+        footer_nav: "Navigace",
+        footer_customer: "Zákazníci",
+        footer_shipping: "Doprava & vrácení",
+        footer_care: "Péče o hedvábí",
+        footer_size: "Velikostní tabulka",
+        footer_connect: "Spojte se",
+        footer_rights: "Všechna práva vyhrazena."
+      },
+      en: {
+        nav_collection: "Collection",
+        nav_story: "Our Story",
+        nav_atelier: "Atelier",
+        nav_contact: "Contact",
+        hero_label: "New Collection · Autumn / Winter",
+        hero_title: "Silk of<br>Midnight",
+        hero_desc: "The finest silk chemises and lingerie. For women who love dark elegance.",
+        hero_btn: "Discover the collection",
+        products_label: "Selected pieces",
+        products_title: "Silk Lingerie",
+        tag_limited: "Limited edition",
+        p1_name: "Midnight Chemise",
+        p2_name: "Notte Camisole",
+        p3_name: "Luna Slip Dress",
+        p4_name: "Sogno Shorts",
+        p5_name: "Eclipse Robe",
+        story_label: "Our Story",
+        story_title: "Between day and night",
+        story_p1: "Seta di Mezzanotte was born from the desire to create silk lingerie you can feel even when you can't see it. Every chemise and pair of panties is crafted from the finest mulberry silk.",
+        story_p2: "We work with Italian and French makers. No compromises on quality – only dark elegance and the feeling of luxury on the skin.",
+        story_btn: "More about the brand",
+        cta_title: "Enter the night",
+        cta_desc: "Discover silk lingerie that will become your nocturnal ritual.",
+        cta_btn: "Browse the collection",
+        footer_tagline: "Silk that wears midnight.",
+        footer_nav: "Navigation",
+        footer_customer: "Customer care",
+        footer_shipping: "Shipping & returns",
+        footer_care: "Silk care",
+        footer_size: "Size guide",
+        footer_connect: "Connect",
+        footer_rights: "All rights reserved."
+      },
+      de: {
+        nav_collection: "Kollektion",
+        nav_story: "Unsere Geschichte",
+        nav_atelier: "Atelier",
+        nav_contact: "Kontakt",
+        hero_label: "Neue Kollektion · Herbst / Winter",
+        hero_title: "Seide der<br>Mitternacht",
+        hero_desc: "Feinste Seidenunterkleider und Dessous. Für Frauen, die dunkle Eleganz lieben.",
+        hero_btn: "Kollektion entdecken",
+        products_label: "Ausgewählte Stücke",
+        products_title: "Seidenwäsche",
+        tag_limited: "Limitierte Edition",
+        p1_name: "Midnight Chemise",
+        p2_name: "Notte Camisole",
+        p3_name: "Luna Slip Dress",
+        p4_name: "Sogno Shorts",
+        p5_name: "Eclipse Robe",
+        story_label: "Unsere Geschichte",
+        story_title: "Zwischen Tag und Nacht",
+        story_p1: "Seta di Mezzanotte entstand aus dem Wunsch, Seidenwäsche zu schaffen, die man spürt, auch wenn man sie nicht sieht. Jedes Unterkleid und jede Hose wird aus feinster Maulbeerseide gefertigt.",
+        story_p2: "Wir arbeiten mit italienischen und französischen Herstellern. Keine Kompromisse bei der Qualität – nur dunkle Eleganz und das Gefühl von Luxus auf der Haut.",
+        story_btn: "Mehr über die Marke",
+        cta_title: "Tritt ein in die Nacht",
+        cta_desc: "Entdecke Seidenwäsche, die zu deinem nächtlichen Ritual wird.",
+        cta_btn: "Kollektion ansehen",
+        footer_tagline: "Seide, die Mitternacht trägt.",
+        footer_nav: "Navigation",
+        footer_customer: "Kundenservice",
+        footer_shipping: "Versand & Rückgabe",
+        footer_care: "Seidenpflege",
+        footer_size: "Größentabelle",
+        footer_connect: "Kontakt",
+        footer_rights: "Alle Rechte vorbehalten."
+      },
+      it: {
+        nav_collection: "Collezione",
+        nav_story: "La nostra storia",
+        nav_atelier: "Atelier",
+        nav_contact: "Contatti",
+        hero_label: "Nuova collezione · Autunno / Inverno",
+        hero_title: "Seta di<br>Mezzanotte",
+        hero_desc: "Le più fini sottovesti e lingerie in seta. Per donne che amano l'eleganza oscura.",
+        hero_btn: "Scopri la collezione",
+        products_label: "Pezzi selezionati",
+        products_title: "Lingerie in seta",
+        tag_limited: "Edizione limitata",
+        p1_name: "Midnight Chemise",
+        p2_name: "Notte Camisole",
+        p3_name: "Luna Slip Dress",
+        p4_name: "Sogno Shorts",
+        p5_name: "Eclipse Robe",
+        story_label: "La nostra storia",
+        story_title: "Tra il giorno e la notte",
+        story_p1: "Seta di Mezzanotte nasce dal desiderio di creare lingerie in seta che si sente anche quando non si vede. Ogni sottoveste e mutandina è realizzata con la più fine seta di gelso.",
+        story_p2: "Lavoriamo con produttori italiani e francesi. Nessun compromesso sulla qualità – solo eleganza oscura e la sensazione di lusso sulla pelle.",
+        story_btn: "Scopri il brand",
+        cta_title: "Entra nella notte",
+        cta_desc: "Scopri la lingerie in seta che diventerà il tuo rituale notturno.",
+        cta_btn: "Sfoglia la collezione",
+        footer_tagline: "La seta che indossa la mezzanotte.",
+        footer_nav: "Navigazione",
+        footer_customer: "Clienti",
+        footer_shipping: "Spedizioni e resi",
+        footer_care: "Cura della seta",
+        footer_size: "Guida alle taglie",
+        footer_connect: "Contatti",
+        footer_rights: "Tutti i diritti riservati."
+      },
+      fr: {
+        nav_collection: "Collection",
+        nav_story: "Notre histoire",
+        nav_atelier: "Atelier",
+        nav_contact: "Contact",
+        hero_label: "Nouvelle collection · Automne / Hiver",
+        hero_title: "Soie de<br>Minuit",
+        hero_desc: "Les plus fines nuisettes et lingeries en soie. Pour les femmes qui aiment l'élégance sombre.",
+        hero_btn: "Découvrir la collection",
+        products_label: "Pièces sélectionnées",
+        products_title: "Lingerie en soie",
+        tag_limited: "Édition limitée",
+        p1_name: "Midnight Chemise",
+        p2_name: "Notte Camisole",
+        p3_name: "Luna Slip Dress",
+        p4_name: "Sogno Shorts",
+        p5_name: "Eclipse Robe",
+        story_label: "Notre histoire",
+        story_title: "Entre le jour et la nuit",
+        story_p1: "Seta di Mezzanotte est née du désir de créer une lingerie en soie que l'on ressent même quand on ne la voit pas. Chaque nuisette et culotte est confectionnée dans la plus fine soie de mûrier.",
+        story_p2: "Nous travaillons avec des fabricants italiens et français. Aucun compromis sur la qualité – seulement l'élégance sombre et la sensation de luxe sur la peau.",
+        story_btn: "En savoir plus",
+        cta_title: "Entrez dans la nuit",
+        cta_desc: "Découvrez la lingerie en soie qui deviendra votre rituel nocturne.",
+        cta_btn: "Voir la collection",
+        footer_tagline: "La soie qui porte minuit.",
+        footer_nav: "Navigation",
+        footer_customer: "Service client",
+        footer_shipping: "Livraison & retours",
+        footer_care: "Entretien de la soie",
+        footer_size: "Guide des tailles",
+        footer_connect: "Nous suivre",
+        footer_rights: "Tous droits réservés."
+      }
+    };
+
+    // ===== Language switcher =====
+    const langBtn = document.getElementById('langBtn');
+    const langDropdown = document.getElementById('langDropdown');
+    const currentLangSpan = document.getElementById('currentLang');
+
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langDropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', () => {
+      langDropdown.classList.remove('open');
+    });
+
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        setLanguage(lang);
+        langDropdown.classList.remove('open');
+      });
+    });
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      if (!t) return;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+          el.innerHTML = t[key];
+        }
+      });
+
+      currentLangSpan.textContent = lang.toUpperCase();
+      document.documentElement.lang = lang;
+
+      // Active state
+      document.querySelectorAll('[data-lang]').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+
+      localStorage.setItem('sdm-lang', lang);
+    }
+
+    // Load saved language
+    const savedLang = localStorage.getItem('sdm-lang') || 'cs';
+    setLanguage(savedLang);
+
     // Sticky nav
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
