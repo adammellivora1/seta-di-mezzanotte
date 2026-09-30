@@ -82,14 +82,79 @@
       height: 100vh; min-height: 680px; position: relative;
       display: flex; align-items: flex-end; justify-content: center; overflow: hidden;
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(to top, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.2) 100%),
-        url('https://images.unsplash.com/photo-1563906267088-b029e7101114?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-      transform: scale(1.04); transition: transform 9s ease-out;
+        .hero {
+      min-height: 100vh;
+      height: 100vh;
+      background: #050505;
     }
-    .hero:hover .hero-bg { transform: scale(1); }
+
+    .hero-content {
+      z-index: 3;
+    }
+
+    nav {
+      z-index: 100;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.72),
+        rgba(0,0,0,0)
+      );
+    }
+.hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #050505;
+      transform: scale(1.01);
+    }
+
+    .hero-bg video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      filter: brightness(0.72) contrast(1.04);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.58) 0%,
+          rgba(0,0,0,0.10) 32%,
+          rgba(0,0,0,0.22) 58%,
+          rgba(0,0,0,0.82) 100%
+        );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero:hover     .hero {
+      min-height: 100vh;
+      height: 100vh;
+      background: #050505;
+    }
+
+    .hero-content {
+      z-index: 3;
+    }
+
+    nav {
+      z-index: 100;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.72),
+        rgba(0,0,0,0)
+      );
+    }
+.hero-bg {
+      transform: scale(1.01);
+    }
     .hero-content {
       position: relative; z-index: 2; text-align: center;
       padding-bottom: 7.5rem; max-width: 860px;
@@ -234,7 +299,14 @@
       .footer-grid { grid-template-columns: 1fr; }
       .logo-text { font-size: 0.95rem; }
     }
-  </style>
+      footer {
+      background: #050505 !important;
+      border-top: 1px solid rgba(201,168,124,0.12);
+    }
+
+    .footer-bottom {
+      background: #050505 !important;
+    }</style>
 </head>
 <body>
   <nav id="nav">
@@ -279,7 +351,7 @@
 
   <section class="hero">
     <div class="hero-bg">
-      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop">
+      <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/15169430/pexels-photo-15169430.jpeg?auto=compress&cs=tinysrgb&w=1600">
         <source src="https://videos.pexels.com/video-files/10069456/10069456-hd_1920_1080_25fps.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
@@ -348,29 +420,6 @@
         <a href="#" class="btn" style="margin-top:0.8rem" data-i18n="story_btn">Více o značce</a>
       </div>
     </div>
-  </section>
-
-  <section class="collection-strip">
-    <div class="strip-track">
-      <div class="strip-item"><img src="https://images.pexels.com/photos/15169430/pexels-photo-15169430.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/6976440/pexels-photo-6976440.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/8626068/pexels-photo-8626068.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/5690222/pexels-photo-5690222.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/11095772/pexels-photo-11095772.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/20501665/pexels-photo-20501665.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/15169430/pexels-photo-15169430.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/6976440/pexels-photo-6976440.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/8626068/pexels-photo-8626068.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/5690222/pexels-photo-5690222.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/11095772/pexels-photo-11095772.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-      <div class="strip-item"><img src="https://images.pexels.com/photos/20501665/pexels-photo-20501665.jpeg?auto=compress&cs=tinysrgb&w=800" alt=""></div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <h2 data-i18n="cta_title">Vstupte do noci</h2>
-    <p data-i18n="cta_desc">Objevte noční košilky a krátké župany, které se stanou vaším nočním rituálem.</p>
-    <a href="#" class="btn" data-i18n="cta_btn">Prohlédnout kolekci</a>
   </section>
 
   <footer>
@@ -565,6 +614,7 @@
   </script>
 </body>
 </html>
+
 
 
 
