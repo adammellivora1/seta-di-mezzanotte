@@ -512,6 +512,81 @@ footer{
   .cart-button span.cart-label{display:none}
 }
 </style>
+<style id="hero-image-style">
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.12) 0%,
+    rgba(0,0,0,.08) 45%,
+    rgba(0,0,0,.38) 100%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .hero-image {
+    object-position: 58% center;
+  }
+}
+</style>
+<style id="seta-hero-image-css">
+.hero {
+  position: relative !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+  background: #000 !important;
+}
+
+.hero-image {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  z-index: 0 !important;
+}
+
+.hero::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.12) 0%,
+      rgba(0,0,0,.02) 45%,
+      rgba(0,0,0,.42) 100%
+    ) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.hero-content {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+@media (max-width: 700px) {
+  .hero-image {
+    object-position: 58% center !important;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -555,10 +630,8 @@ footer{
 </header>
 
 <!-- HERO -->
-<section class="hero">
-<video id="heroVideo" autoplay muted loop playsinline preload="auto">
-<source src="./videos/hero-nightwear.mp4" type="video/mp4">
-</video>
+<section class="hero"><img class="hero-image" src="./images/hero-night.jpg" alt="Seta di Mezzanotte">
+
 </section>
 
 <!-- INTRO -->
@@ -1444,3 +1517,5 @@ applyLanguage();
 
 </body>
 </html>
+
+
