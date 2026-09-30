@@ -7,451 +7,509 @@
 <meta name="description" content="Italian luxury nightwear. Silk, lace and timeless elegance.">
 
 <style>
-:root{
- --black:#070707;
- --black2:#0d0d0d;
- --black3:#151515;
- --cream:#eee9df;
- --muted:#a9a39a;
- --gold:#b9a47a;
- --line:rgba(238,233,223,.16);
-}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
- background:var(--black);
- color:var(--cream);
- font-family:Arial,Helvetica,sans-serif;
- overflow-x:hidden
+  background:#070707;
+  color:#eee9df;
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden
 }
-a{color:inherit;text-decoration:none}
-button,input{font:inherit}
+button,a{font:inherit}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%}
 
 /* HEADER */
 .header{
- position:fixed;
- top:0;left:0;right:0;
- height:78px;
- z-index:100;
- display:flex;
- align-items:center;
- justify-content:space-between;
- padding:0 42px;
- background:linear-gradient(to bottom,rgba(0,0,0,.72),transparent);
- transition:.35s;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:82px;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 42px;
+  transition:.35s;
+  background:linear-gradient(to bottom,rgba(0,0,0,.55),transparent)
 }
 .header.scrolled{
- background:rgba(7,7,7,.94);
- border-bottom:1px solid var(--line);
+  background:rgba(7,7,7,.96);
+  border-bottom:1px solid rgba(255,255,255,.1)
 }
 .logo{
- font-family:Georgia,serif;
- font-size:16px;
- letter-spacing:4px;
- white-space:nowrap
+  font-size:15px;
+  letter-spacing:.28em;
+  white-space:nowrap
 }
 .nav{
- display:flex;
- gap:27px;
- font-size:9px;
- letter-spacing:2px;
- text-transform:uppercase
+  display:flex;
+  gap:28px;
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase
 }
-.nav a{opacity:.86;transition:.25s}
-.nav a:hover{color:var(--gold);opacity:1}
+.nav a{opacity:.85;transition:.2s}
+.nav a:hover{opacity:1;color:#b9a47a}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:18px
+}
 
 /* LANGUAGE */
-.lang{
- position:relative;
- margin-left:20px
-}
+.lang{position:relative}
 .lang-current{
- background:none;
- border:0;
- color:var(--cream);
- font-size:9px;
- letter-spacing:2px;
- cursor:pointer;
- padding:10px 0
-}
-.lang-current span{
- color:var(--gold);
- margin-left:5px
+  border:0;
+  background:none;
+  color:#eee9df;
+  cursor:pointer;
+  font-size:11px;
+  letter-spacing:.15em;
+  padding:8px
 }
 .lang-menu{
- position:absolute;
- right:0;
- top:38px;
- min-width:130px;
- background:#101010;
- border:1px solid var(--line);
- padding:8px 0;
- opacity:0;
- visibility:hidden;
- transform:translateY(-5px);
- transition:.2s
+  position:absolute;
+  right:0;
+  top:38px;
+  width:145px;
+  background:#111;
+  border:1px solid rgba(255,255,255,.14);
+  display:none;
+  padding:7px 0;
+  box-shadow:0 15px 50px rgba(0,0,0,.5)
 }
-.lang.open .lang-menu{
- opacity:1;
- visibility:visible;
- transform:translateY(0)
-}
+.lang.open .lang-menu{display:block}
 .lang-menu button{
- display:block;
- width:100%;
- text-align:left;
- background:none;
- border:0;
- color:#ddd;
- padding:10px 17px;
- font-size:9px;
- letter-spacing:2px;
- cursor:pointer
+  display:block;
+  width:100%;
+  background:none;
+  color:#eee9df;
+  border:0;
+  text-align:left;
+  padding:10px 15px;
+  font-size:10px;
+  letter-spacing:.14em;
+  cursor:pointer
 }
-.lang-menu button:hover{
- color:var(--gold);
- background:#181818
+.lang-menu button:hover{background:#1d1d1d;color:#b9a47a}
+
+/* CART */
+.cart-button{
+  border:0;
+  background:none;
+  color:#eee9df;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  letter-spacing:.14em
+}
+.cart-icon{font-size:20px;line-height:1}
+.cart-count{
+  min-width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#b9a47a;
+  color:#070707;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:9px;
+  font-weight:bold
 }
 
 /* HERO */
 .hero{
- height:100vh;
- min-height:680px;
- position:relative;
- overflow:hidden
+  height:100vh;
+  min-height:650px;
+  position:relative;
+  overflow:hidden;
+  background:#050505
 }
 .hero video{
- position:absolute;
- inset:0;
- width:100%;
- height:100%;
- object-fit:cover;
- filter:brightness(.48) contrast(1.08)
+  width:100%;
+  height:100%;
+  object-fit:cover
 }
 .hero:after{
- content:"";
- position:absolute;
- inset:0;
- background:
- linear-gradient(to bottom,rgba(0,0,0,.38),transparent 40%,rgba(0,0,0,.72)),
- linear-gradient(90deg,rgba(0,0,0,.22),transparent,rgba(0,0,0,.2))
-}
-.hero-content{
- position:absolute;
- z-index:2;
- left:50%;
- top:50%;
- transform:translate(-50%,-50%);
- text-align:center;
- width:90%
-}
-.eyebrow{
- color:#d0c4a8;
- font-size:9px;
- letter-spacing:6px;
- text-transform:uppercase;
- margin-bottom:27px
-}
-.hero h1{
- font-family:Georgia,serif;
- font-weight:400;
- font-size:clamp(58px,9vw,135px);
- line-height:.88;
- letter-spacing:-5px
-}
-.hero p{
- margin-top:30px;
- font-family:Georgia,serif;
- font-style:italic;
- font-size:17px;
- color:#ddd5c9
-}
-.hero-btn,.discover{
- display:inline-block;
- margin-top:34px;
- border-bottom:1px solid var(--gold);
- padding-bottom:9px;
- color:#eee9df;
- font-size:9px;
- letter-spacing:3px;
- text-transform:uppercase;
- transition:.25s
-}
-.hero-btn:hover,.discover:hover{
- color:var(--gold)
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.1),rgba(0,0,0,.15))
 }
 
 /* INTRO */
 .intro{
- background:#0b0b0b;
- text-align:center;
- padding:120px 8vw;
- border-top:1px solid var(--line);
- border-bottom:1px solid var(--line)
+  padding:125px 7vw 120px;
+  text-align:center;
+  background:#080808
 }
-.intro small,.story-label{
- color:var(--gold);
- font-size:8px;
- letter-spacing:5px;
- text-transform:uppercase
+.eyebrow{
+  color:#b9a47a;
+  text-transform:uppercase;
+  letter-spacing:.3em;
+  font-size:10px;
+  margin-bottom:25px
 }
 .intro h2{
- font-family:Georgia,serif;
- font-weight:400;
- font-size:clamp(38px,5vw,70px);
- line-height:1;
- max-width:900px;
- margin:27px auto
+  font-family:Georgia,serif;
+  font-size:clamp(38px,5vw,72px);
+  font-weight:400;
+  line-height:1.05;
+  max-width:900px;
+  margin:auto
 }
 .intro p{
- max-width:560px;
- margin:auto;
- color:#918d87;
- line-height:1.9;
- font-size:12px
+  max-width:620px;
+  margin:28px auto 0;
+  color:#aaa49a;
+  line-height:1.8;
+  font-size:14px
 }
 
 /* PRODUCTS */
-.product-section{
- background:#090909;
- padding:90px 4vw 110px
-}
-.section-title{
- display:flex;
- justify-content:space-between;
- align-items:end;
- padding:0 1vw 32px
-}
-.section-title h2{
- font-family:Georgia,serif;
- font-weight:400;
- font-size:40px
-}
-.section-title span{
- color:#88837c;
- font-size:8px;
- letter-spacing:3px;
- text-transform:uppercase
-}
 .products{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:12px
+  padding:95px 5vw 110px;
+  background:#0b0b0b
 }
-.product{cursor:pointer}
+.section-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:42px
+}
+.section-heading h2{
+  font-family:Georgia,serif;
+  font-size:42px;
+  font-weight:400
+}
+.section-heading span{
+  color:#aaa49a;
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px
+}
+.product{
+  position:relative;
+  cursor:pointer
+}
 .product-image{
- aspect-ratio:3/4;
- overflow:hidden;
- background:#151515
+  position:relative;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  background:#151515
 }
 .product-image img{
- width:100%;
- height:100%;
- object-fit:cover;
- transition:transform 1s cubic-bezier(.2,.7,.2,1);
- filter:saturate(.78) contrast(1.03)
+  height:100%;
+  object-fit:cover;
+  transition:transform .7s
 }
-.product:hover img{
- transform:scale(1.045)
+.product:hover img{transform:scale(1.035)}
+.product-info{padding:17px 2px 0}
+.product-name{
+  font-family:Georgia,serif;
+  font-size:18px
 }
-.product-info{
- padding:15px 3px 5px;
- display:flex;
- justify-content:space-between;
- gap:10px;
- font-size:9px;
- letter-spacing:1.6px;
- text-transform:uppercase;
- color:#ddd7ce
+.product-price{
+  color:#b9a47a;
+  font-size:12px;
+  margin-top:8px
 }
-.price{
- color:var(--gold);
- white-space:nowrap
+.add-btn{
+  margin-top:13px;
+  width:100%;
+  border:1px solid rgba(238,233,223,.25);
+  background:transparent;
+  color:#eee9df;
+  padding:12px;
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.25s
+}
+.add-btn:hover{
+  background:#eee9df;
+  color:#070707
 }
 
 /* EDITORIAL */
 .editorial{
- height:88vh;
- min-height:610px;
- position:relative;
- overflow:hidden;
- display:flex;
- align-items:center;
- justify-content:center;
- text-align:center
-}
-.editorial-bg{
- position:absolute;
- inset:0;
- background-size:cover;
- background-position:center;
- filter:brightness(.58) saturate(.72);
- transition:transform 1.4s ease
-}
-.editorial:hover .editorial-bg{
- transform:scale(1.025)
+  min-height:82vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background-size:cover;
+  background-position:center;
+  overflow:hidden
 }
 .editorial:after{
- content:"";
- position:absolute;
- inset:0;
- background:
- radial-gradient(circle,transparent 15%,rgba(0,0,0,.35) 100%),
- linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.55))
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.38)
 }
 .editorial-content{
- position:relative;
- z-index:2
-}
-.editorial small{
- color:#d2c3a2;
- font-size:8px;
- letter-spacing:5px;
- text-transform:uppercase
+  position:relative;
+  z-index:2;
+  padding:30px
 }
 .editorial h2{
- font-family:Georgia,serif;
- font-size:clamp(55px,8vw,115px);
- font-weight:400;
- line-height:.88;
- margin:25px 0
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:clamp(45px,7vw,100px)
 }
 .editorial p{
- font-family:Georgia,serif;
- font-style:italic;
- color:#ddd6ca;
- font-size:17px
+  margin-top:18px;
+  color:#ddd5c8;
+  font-size:13px;
+  letter-spacing:.08em
 }
 
 /* STORY */
 .story{
- background:#050505;
- padding:150px 9vw;
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:100px;
- align-items:center
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:650px;
+  background:#101010
 }
-.story h2{
- font-family:Georgia,serif;
- font-size:clamp(45px,6vw,80px);
- font-weight:400;
- line-height:.95
+.story-image{
+  background:url("https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1600&q=85") center/cover
 }
-.story p{
- color:#96918a;
- font-size:12px;
- line-height:2.1;
- max-width:480px
+.story-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:9vw
+}
+.story-copy h2{
+  font-family:Georgia,serif;
+  font-size:clamp(40px,5vw,70px);
+  font-weight:400;
+  line-height:1
+}
+.story-copy p{
+  color:#aaa49a;
+  line-height:1.9;
+  font-size:14px;
+  margin-top:28px;
+  max-width:500px
 }
 
 /* NEWSLETTER */
 .newsletter{
- background:#e7e1d7;
- color:#111;
- text-align:center;
- padding:120px 30px
+  background:#eee9df;
+  color:#111;
+  text-align:center;
+  padding:100px 30px
 }
 .newsletter h2{
- font-family:Georgia,serif;
- font-size:55px;
- font-weight:400
+  font-family:Georgia,serif;
+  font-size:48px;
+  font-weight:400
 }
 .newsletter p{
- margin:18px auto 35px;
- color:#666;
- font-size:11px
+  margin:15px auto 30px;
+  color:#555;
+  font-size:13px
 }
 .newsletter form{
- display:flex;
- max-width:480px;
- margin:auto;
- border-bottom:1px solid #222
+  max-width:480px;
+  margin:auto;
+  display:flex;
+  border-bottom:1px solid #777
 }
 .newsletter input{
- flex:1;
- border:0;
- background:none;
- padding:15px 0;
- outline:0;
- font-size:11px
+  flex:1;
+  border:0;
+  background:none;
+  padding:15px 0;
+  outline:none;
+  color:#111
 }
 .newsletter button{
- border:0;
- background:none;
- cursor:pointer;
- font-size:8px;
- letter-spacing:3px
+  border:0;
+  background:none;
+  cursor:pointer;
+  letter-spacing:.15em;
+  font-size:10px
 }
 
 /* FOOTER */
 footer{
- background:#030303;
- padding:75px 5vw 30px
+  padding:55px 5vw;
+  background:#050505;
+  color:#8f8a82;
+  display:flex;
+  justify-content:space-between;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase
 }
-.footer-top{
- display:grid;
- grid-template-columns:2fr 1fr 1fr 1fr;
- gap:50px;
- padding-bottom:80px
+
+/* CART DRAWER */
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.62);
+  z-index:198;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s
 }
-.footer-brand{
- font-family:Georgia,serif;
- font-size:22px;
- letter-spacing:2px
+.cart-overlay.open{
+  opacity:1;
+  pointer-events:auto
 }
-footer h4{
- color:#eee9df;
- font-size:8px;
- letter-spacing:3px;
- text-transform:uppercase;
- margin-bottom:20px
+.cart-drawer{
+  position:fixed;
+  right:0;
+  top:0;
+  height:100vh;
+  width:min(460px,100%);
+  background:#101010;
+  z-index:199;
+  transform:translateX(100%);
+  transition:.35s;
+  display:flex;
+  flex-direction:column;
+  border-left:1px solid rgba(255,255,255,.12)
 }
-footer a{
- display:block;
- color:#777;
- font-size:9px;
- margin-bottom:13px;
- transition:.2s
+.cart-drawer.open{transform:translateX(0)}
+.cart-head{
+  padding:28px 25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.1)
 }
-footer a:hover{color:var(--gold)}
-.footer-bottom{
- border-top:1px solid #1b1b1b;
- padding-top:25px;
- display:flex;
- justify-content:space-between;
- color:#555;
- font-size:8px;
- letter-spacing:1px
+.cart-head h2{
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:27px
 }
+.close-cart{
+  border:0;
+  background:none;
+  color:#eee9df;
+  font-size:24px;
+  cursor:pointer
+}
+.cart-items{
+  flex:1;
+  overflow:auto;
+  padding:20px 25px
+}
+.cart-empty{
+  text-align:center;
+  padding:80px 20px;
+  color:#8e8981;
+  font-size:13px;
+  line-height:1.8
+}
+.cart-item{
+  display:grid;
+  grid-template-columns:80px 1fr auto;
+  gap:15px;
+  padding:15px 0;
+  border-bottom:1px solid rgba(255,255,255,.1)
+}
+.cart-item img{
+  width:80px;
+  height:105px;
+  object-fit:cover
+}
+.cart-item-name{
+  font-family:Georgia,serif;
+  font-size:16px;
+  margin-bottom:8px
+}
+.cart-item-price{
+  color:#b9a47a;
+  font-size:12px
+}
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:12px
+}
+.quantity button{
+  width:24px;
+  height:24px;
+  border:1px solid rgba(255,255,255,.2);
+  background:none;
+  color:#eee9df;
+  cursor:pointer
+}
+.quantity span{font-size:11px}
+.remove{
+  border:0;
+  background:none;
+  color:#777;
+  cursor:pointer;
+  font-size:10px;
+  margin-top:10px
+}
+.cart-item-total{
+  color:#eee9df;
+  font-size:12px;
+  white-space:nowrap
+}
+.cart-bottom{
+  padding:22px 25px 28px;
+  border-top:1px solid rgba(255,255,255,.1)
+}
+.subtotal{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  margin-bottom:18px
+}
+.subtotal strong{
+  font-family:Georgia,serif;
+  font-size:20px;
+  font-weight:400
+}
+.checkout{
+  width:100%;
+  padding:17px;
+  border:0;
+  background:#eee9df;
+  color:#080808;
+  cursor:pointer;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:10px
+}
+.checkout:hover{background:#b9a47a}
 
 /* MOBILE */
-.mobile-menu{display:none}
-
 @media(max-width:900px){
- .header{padding:0 20px}
- .nav{display:none}
- .mobile-menu{display:block;color:#aaa;font-size:9px;letter-spacing:2px}
- .logo{font-size:12px;letter-spacing:3px}
- .lang{margin-left:auto;margin-right:18px}
- .products{grid-template-columns:repeat(2,1fr)}
- .product-section{padding:70px 15px 80px}
- .section-title h2{font-size:30px}
- .section-title span{display:none}
- .editorial{height:70vh;min-height:500px}
- .editorial h2{font-size:58px}
- .story{grid-template-columns:1fr;gap:50px;padding:100px 25px}
- .footer-top{grid-template-columns:1fr 1fr}
- .newsletter h2{font-size:43px}
+  .header{padding:0 18px;height:70px}
+  .logo{font-size:11px}
+  .nav{display:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .story{grid-template-columns:1fr}
+  .story-image{min-height:500px}
+  footer{flex-direction:column;gap:15px}
 }
-
-@media(max-width:520px){
- .header{height:65px}
- .products{gap:7px}
- .product-info{font-size:8px}
- .hero h1{font-size:55px;letter-spacing:-3px}
- .editorial h2{font-size:52px}
- .footer-top{grid-template-columns:1fr}
+@media(max-width:500px){
+  .grid{gap:10px}
+  .products{padding:70px 15px}
+  .section-heading h2{font-size:31px}
+  .cart-button span.cart-label{display:none}
 }
 </style>
 </head>
@@ -463,13 +521,15 @@ footer a:hover{color:var(--gold)}
 <a href="#" class="logo">SETA DI MEZZANOTTE</a>
 
 <nav class="nav">
-<a href="#new">New Arrivals</a>
-<a href="#nightgowns">Nightgowns</a>
-<a href="#chemises">Chemises</a>
-<a href="#robes">Robes</a>
-<a href="#pajamas">Pajamas</a>
-<a href="#story">The House</a>
+<a href="#new" data-i18n="navNew">New Arrivals</a>
+<a href="#nightgowns" data-i18n="navNightgowns">Nightgowns</a>
+<a href="#chemises" data-i18n="navChemises">Chemises</a>
+<a href="#robes" data-i18n="navRobes">Robes</a>
+<a href="#pajamas" data-i18n="navPajamas">Pajamas</a>
+<a href="#story" data-i18n="navHouse">The House</a>
 </nav>
+
+<div class="header-right">
 
 <div class="lang" id="language">
 <button class="lang-current" onclick="toggleLang()">
@@ -485,373 +545,376 @@ footer a:hover{color:var(--gold)}
 </div>
 </div>
 
-<div class="mobile-menu">MENU</div>
+<button class="cart-button" onclick="openCart()">
+<span class="cart-icon">♧</span>
+<span class="cart-label" data-i18n="cart">CART</span>
+<span class="cart-count" id="cartCount">0</span>
+</button>
 
+</div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-
-<video
-id="heroVideo"
-autoplay
-muted
-loop
-playsinline
-preload="auto">
+<video id="heroVideo" autoplay muted loop playsinline preload="auto">
 <source src="./videos/hero-nightwear.mp4" type="video/mp4">
 </video>
-
 </section>
 
 <!-- INTRO -->
 <section class="intro">
 
-<small>SETA DI MEZZANOTTE — MILANO / ITALIA</small>
+<div class="eyebrow" data-i18n="eyebrow">Italian Luxury Nightwear</div>
 
-<h2>Where Italian elegance meets the intimacy of night.</h2>
+<h2 data-i18n="introTitle">
+The art of dressing<br>for the night.
+</h2>
 
-<p>
-A collection of refined nightwear crafted for the hours
-when the world becomes quiet. Italian silhouettes,
-luminous silk, delicate lace and timeless femininity.
+<p data-i18n="introText">
+Born in Italy, SETA DI MEZZANOTTE creates refined nightwear
+in silk, lace and the finest fabrics — designed for quiet,
+intimate moments and timeless elegance.
 </p>
 
 </section>
 
 <!-- NEW -->
-<section class="product-section" id="new">
+<section class="products" id="new">
 
-<div class="section-title">
-<h2>New Arrivals</h2>
-<span>The latest from the house</span>
+<div class="section-heading">
+<h2 data-i18n="newTitle">New Arrivals</h2>
+<span data-i18n="newSubtitle">The latest collection</span>
 </div>
 
-<div class="products">
+<div class="grid">
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Notte di Seta Gown</span>
-<span class="price">€290</span>
+<div class="product-name" data-i18n="p1">Silk Nocturne Gown</div>
+<div class="product-price">€290</div>
+<button class="add-btn"
+onclick="addToCart('Silk Nocturne Gown',290,'https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85')"
+data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Milano Chemise</span>
-<span class="price">€240</span>
+<div class="product-name" data-i18n="p2">Luna Silk Chemise</div>
+<div class="product-price">€240</div>
+<button class="add-btn"
+onclick="addToCart('Luna Silk Chemise',240,'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85')"
+data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Seta Nera Robe</span>
-<span class="price">€420</span>
+<div class="product-name" data-i18n="p3">Midnight Silk Robe</div>
+<div class="product-price">€320</div>
+<button class="add-btn"
+onclick="addToCart('Midnight Silk Robe',320,'https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85')"
+data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Roma Silk Set</span>
-<span class="price">€360</span>
+<div class="product-name" data-i18n="p4">Sera Silk Pajamas</div>
+<div class="product-price">€360</div>
+<button class="add-btn"
+onclick="addToCart('Sera Silk Pajamas',360,'https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85')"
+data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
 </div>
 </section>
 
 <!-- NIGHTGOWNS -->
-<section class="editorial" id="nightgowns">
-
-<div class="editorial-bg"
-style="background-image:url('https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=2200&q=90')"></div>
+<section class="editorial"
+id="nightgowns"
+style="background-image:url('https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=2000&q=85')">
 
 <div class="editorial-content">
-
-<small>01 — THE COLLECTION</small>
-
-<h2>Nightgowns</h2>
-
-<p>Long silhouettes. Liquid silk. Midnight elegance.</p>
-
-<a href="#nightgown-products" class="discover">Discover Nightgowns</a>
-
+<div class="eyebrow" data-i18n="nightEyebrow">01 — Nightgowns</div>
+<h2 data-i18n="nightTitle">Silk After Dark</h2>
+<p data-i18n="nightText">Fluid silhouettes. Italian craftsmanship. Absolute femininity.</p>
 </div>
+
 </section>
 
-<section class="product-section" id="nightgown-products">
+<section class="products">
 
-<div class="section-title">
-<h2>Nightgowns</h2>
-<span>Italian silk collection</span>
+<div class="section-heading">
+<h2 data-i18n="nightTitle2">Nightgowns</h2>
+<span data-i18n="shopCollection">Shop the collection</span>
 </div>
 
-<div class="products">
+<div class="grid">
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Seta Nera Gown</span>
-<span class="price">€310</span>
+<div class="product-name">Neroli Silk Gown</div>
+<div class="product-price">€310</div>
+<button class="add-btn" onclick="addToCart('Neroli Silk Gown',310,'https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Venezia Gown</span>
-<span class="price">€340</span>
+<div class="product-name">Luna Long Gown</div>
+<div class="product-price">€340</div>
+<button class="add-btn" onclick="addToCart('Luna Long Gown',340,'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Luna Gown</span>
-<span class="price">€295</span>
+<div class="product-name">Venezia Lace Gown</div>
+<div class="product-price">€390</div>
+<button class="add-btn" onclick="addToCart('Venezia Lace Gown',390,'https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Firenze Gown</span>
-<span class="price">€380</span>
+<div class="product-name">Seta Bianca Gown</div>
+<div class="product-price">€420</div>
+<button class="add-btn" onclick="addToCart('Seta Bianca Gown',420,'https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
 </div>
 </section>
 
 <!-- CHEMISES -->
-<section class="editorial" id="chemises">
-
-<div class="editorial-bg"
-style="background-image:url('https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=2200&q=90')"></div>
+<section class="editorial"
+id="chemises"
+style="background-image:url('https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=2000&q=85')">
 
 <div class="editorial-content">
-
-<small>02 — THE COLLECTION</small>
-
-<h2>Chemises</h2>
-
-<p>Silk after dark.</p>
-
-<a href="#chemise-products" class="discover">Discover Chemises</a>
-
+<div class="eyebrow">02 — Chemises</div>
+<h2 data-i18n="chemTitle">Close to the Skin</h2>
+<p data-i18n="chemText">Delicate lace and silk created for intimate evenings.</p>
 </div>
+
 </section>
 
-<section class="product-section" id="chemise-products">
+<section class="products">
 
-<div class="section-title">
-<h2>Chemises</h2>
-<span>Delicate silhouettes</span>
+<div class="section-heading">
+<h2 data-i18n="chemTitle2">Chemises</h2>
+<span data-i18n="shopCollection">Shop the collection</span>
 </div>
 
-<div class="products">
+<div class="grid">
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Seta Bianca</span>
-<span class="price">€220</span>
+<div class="product-name">Luna Lace Chemise</div>
+<div class="product-price">€230</div>
+<button class="add-btn" onclick="addToCart('Luna Lace Chemise',230,'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Notte Chemise</span>
-<span class="price">€250</span>
+<div class="product-name">Nera Silk Chemise</div>
+<div class="product-price">€250</div>
+<button class="add-btn" onclick="addToCart('Nera Silk Chemise',250,'https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Amalfi Silk</span>
-<span class="price">€270</span>
+<div class="product-name">Roma Satin Chemise</div>
+<div class="product-price">€270</div>
+<button class="add-btn" onclick="addToCart('Roma Satin Chemise',270,'https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Roma Lace</span>
-<span class="price">€260</span>
+<div class="product-name">Amalfi Silk Chemise</div>
+<div class="product-price">€295</div>
+<button class="add-btn" onclick="addToCart('Amalfi Silk Chemise',295,'https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
 </div>
 </section>
 
 <!-- ROBES -->
-<section class="editorial" id="robes">
-
-<div class="editorial-bg"
-style="background-image:url('https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=2200&q=90')"></div>
+<section class="editorial"
+id="robes"
+style="background-image:url('https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=2000&q=85')">
 
 <div class="editorial-content">
-
-<small>03 — THE COLLECTION</small>
-
-<h2>Robes</h2>
-
-<p>The art of draping.</p>
-
-<a href="#robe-products" class="discover">Discover Robes</a>
-
+<div class="eyebrow">03 — Robes</div>
+<h2 data-i18n="robeTitle">Morning Light</h2>
+<p data-i18n="robeText">The softest layer between night and day.</p>
 </div>
+
 </section>
 
-<section class="product-section" id="robe-products">
+<section class="products">
 
-<div class="section-title">
-<h2>Robes</h2>
-<span>Luxury layers</span>
+<div class="section-heading">
+<h2 data-i18n="robeTitle2">Robes</h2>
+<span data-i18n="shopCollection">Shop the collection</span>
 </div>
 
-<div class="products">
+<div class="grid">
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Milano Robe</span>
-<span class="price">€420</span>
+<div class="product-name">Milano Silk Robe</div>
+<div class="product-price">€320</div>
+<button class="add-btn" onclick="addToCart('Milano Silk Robe',320,'https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Seta Lunga</span>
-<span class="price">€450</span>
+<div class="product-name">Roma Long Robe</div>
+<div class="product-price">€350</div>
+<button class="add-btn" onclick="addToCart('Roma Long Robe',350,'https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Venezia Robe</span>
-<span class="price">€390</span>
+<div class="product-name">Nero Velvet Robe</div>
+<div class="product-price">€380</div>
+<button class="add-btn" onclick="addToCart('Nero Velvet Robe',380,'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Notte Lunga</span>
-<span class="price">€430</span>
+<div class="product-name">Firenze Lace Robe</div>
+<div class="product-price">€410</div>
+<button class="add-btn" onclick="addToCart('Firenze Lace Robe',410,'https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
 </div>
 </section>
 
 <!-- PAJAMAS -->
-<section class="editorial" id="pajamas">
-
-<div class="editorial-bg"
-style="background-image:url('https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=2200&q=90')"></div>
+<section class="editorial"
+id="pajamas"
+style="background-image:url('https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=2000&q=85')">
 
 <div class="editorial-content">
-
-<small>04 — THE COLLECTION</small>
-
-<h2>Pajamas</h2>
-
-<p>Night in Milano.</p>
-
-<a href="#pajama-products" class="discover">Discover Pajamas</a>
-
+<div class="eyebrow">04 — Pajamas</div>
+<h2 data-i18n="pajamaTitle">The Art of Rest</h2>
+<p data-i18n="pajamaText">Relaxed silhouettes crafted from exquisite Italian silk.</p>
 </div>
+
 </section>
 
-<section class="product-section" id="pajama-products">
+<section class="products">
 
-<div class="section-title">
-<h2>Pajamas</h2>
-<span>Tailored for the night</span>
+<div class="section-heading">
+<h2 data-i18n="pajamaTitle2">Pajamas</h2>
+<span data-i18n="shopCollection">Shop the collection</span>
 </div>
 
-<div class="products">
+<div class="grid">
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Milano Pajama</span>
-<span class="price">€330</span>
+<div class="product-name">Sera Silk Set</div>
+<div class="product-price">€360</div>
+<button class="add-btn" onclick="addToCart('Sera Silk Set',360,'https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Seta Stripe</span>
-<span class="price">€350</span>
+<div class="product-name">Milano Pajama Set</div>
+<div class="product-price">€390</div>
+<button class="add-btn" onclick="addToCart('Milano Pajama Set',390,'https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Roma Pajama</span>
-<span class="price">€320</span>
+<div class="product-name">Notte Satin Set</div>
+<div class="product-price">€340</div>
+<button class="add-btn" onclick="addToCart('Notte Satin Set',340,'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
-<article class="product">
+<div class="product">
 <div class="product-image">
-<img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=90">
+<img src="https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85">
 </div>
 <div class="product-info">
-<span>Notte Set</span>
-<span class="price">€370</span>
+<div class="product-name">Venezia Silk Set</div>
+<div class="product-price">€420</div>
+<button class="add-btn" onclick="addToCart('Venezia Silk Set',420,'https://images.unsplash.com/photo-1566206091558-7f218b696731?auto=format&fit=crop&w=1000&q=85')" data-i18n="add">Add to Cart</button>
 </div>
-</article>
+</div>
 
 </div>
 </section>
@@ -859,143 +922,525 @@ style="background-image:url('https://images.unsplash.com/photo-1618244972963-dbe
 <!-- STORY -->
 <section class="story" id="story">
 
-<div>
-<div class="story-label">The House of Seta</div>
-<h2>Made for the hours that belong only to you.</h2>
-</div>
+<div class="story-image"></div>
 
-<div>
-<p>
-SETA DI MEZZANOTTE was born from a fascination with
-Italian nights — the soft glow of Milano streets,
-the quiet of a Venetian room and the timeless
-sensuality of silk against skin.
-<br><br>
-Every silhouette is designed as an invitation to slow
-down, disappear from the world and enter your own.
+<div class="story-copy">
+
+<div class="eyebrow" data-i18n="storyEyebrow">The House of Seta</div>
+
+<h2 data-i18n="storyTitle">
+A private ritual,<br>
+made in Italy.
+</h2>
+
+<p data-i18n="storyText">
+SETA DI MEZZANOTTE is a celebration of the night.
+Every piece is designed around the beauty of movement,
+the softness of silk and the timeless language of Italian craftsmanship.
 </p>
-</div>
 
+</div>
 </section>
 
 <!-- NEWSLETTER -->
 <section class="newsletter">
 
-<h2>Enter the Night</h2>
+<div class="eyebrow" data-i18n="newsletterEyebrow">Private Access</div>
 
-<p>Private access to new collections and stories from the house.</p>
+<h2 data-i18n="newsletterTitle">Enter the world of Seta.</h2>
 
-<form onsubmit="event.preventDefault();alert('Thank you for joining SETA DI MEZZANOTTE.');">
+<p data-i18n="newsletterText">
+Be the first to discover new collections and private releases.
+</p>
 
-<input type="email" placeholder="Your email address" required>
-
-<button type="submit">SUBSCRIBE</button>
-
+<form onsubmit="subscribe(event)">
+<input type="email" required placeholder="Your email address" id="emailInput">
+<button type="submit" data-i18n="subscribe">SUBSCRIBE</button>
 </form>
 
 </section>
 
 <footer>
 
-<div class="footer-top">
+<div>© 2026 SETA DI MEZZANOTTE</div>
 
-<div>
-<div class="footer-brand">SETA DI MEZZANOTTE</div>
-</div>
-
-<div>
-<h4>Collections</h4>
-<a href="#nightgowns">Nightgowns</a>
-<a href="#chemises">Chemises</a>
-<a href="#robes">Robes</a>
-<a href="#pajamas">Pajamas</a>
-</div>
-
-<div>
-<h4>The House</h4>
-<a href="#story">Our Story</a>
-<a href="#">Journal</a>
-<a href="#">Contact</a>
-</div>
-
-<div>
-<h4>Follow</h4>
-<a href="#">Instagram</a>
-<a href="#">Pinterest</a>
-<a href="#">TikTok</a>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-
-<span>© 2026 SETA DI MEZZANOTTE</span>
-<span>MILANO · ITALIA</span>
-
+<div data-i18n="footerText">
+ITALIAN LUXURY NIGHTWEAR
 </div>
 
 </footer>
 
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+<div class="cart-head">
+<h2 data-i18n="cartTitle">Your Cart</h2>
+<button class="close-cart" onclick="closeCart()">×</button>
+</div>
+
+<div class="cart-items" id="cartItems"></div>
+
+<div class="cart-bottom">
+
+<div class="subtotal">
+<span data-i18n="subtotal">Subtotal</span>
+<strong id="cartTotal">€0</strong>
+</div>
+
+<button class="checkout" onclick="checkout()" data-i18n="checkout">
+Proceed to Checkout
+</button>
+
+</div>
+
+</aside>
+
 <script>
 
-/* HEADER */
-const header=document.getElementById("header");
+/* =========================
+   TRANSLATIONS
+========================= */
 
-window.addEventListener("scroll",()=>{
- header.classList.toggle("scrolled",window.scrollY>40);
-});
+const translations={
+
+EN:{
+navNew:"New Arrivals",
+navNightgowns:"Nightgowns",
+navChemises:"Chemises",
+navRobes:"Robes",
+navPajamas:"Pajamas",
+navHouse:"The House",
+cart:"CART",
+eyebrow:"Italian Luxury Nightwear",
+introTitle:"The art of dressing<br>for the night.",
+introText:"Born in Italy, SETA DI MEZZANOTTE creates refined nightwear in silk, lace and the finest fabrics — designed for quiet, intimate moments and timeless elegance.",
+newTitle:"New Arrivals",
+newSubtitle:"The latest collection",
+add:"Add to Cart",
+nightEyebrow:"01 — Nightgowns",
+nightTitle:"Silk After Dark",
+nightText:"Fluid silhouettes. Italian craftsmanship. Absolute femininity.",
+nightTitle2:"Nightgowns",
+shopCollection:"Shop the collection",
+chemTitle:"Close to the Skin",
+chemText:"Delicate lace and silk created for intimate evenings.",
+chemTitle2:"Chemises",
+robeTitle:"Morning Light",
+robeText:"The softest layer between night and day.",
+robeTitle2:"Robes",
+pajamaTitle:"The Art of Rest",
+pajamaText:"Relaxed silhouettes crafted from exquisite Italian silk.",
+pajamaTitle2:"Pajamas",
+storyEyebrow:"The House of Seta",
+storyTitle:"A private ritual,<br>made in Italy.",
+storyText:"SETA DI MEZZANOTTE is a celebration of the night. Every piece is designed around the beauty of movement, the softness of silk and the timeless language of Italian craftsmanship.",
+newsletterEyebrow:"Private Access",
+newsletterTitle:"Enter the world of Seta.",
+newsletterText:"Be the first to discover new collections and private releases.",
+subscribe:"SUBSCRIBE",
+footerText:"ITALIAN LUXURY NIGHTWEAR",
+cartTitle:"Your Cart",
+subtotal:"Subtotal",
+checkout:"Proceed to Checkout",
+empty:"Your cart is empty."
+},
+
+IT:{
+navNew:"Nuovi Arrivi",
+navNightgowns:"Camicie da Notte",
+navChemises:"Chemisier",
+navRobes:"Vestaglie",
+navPajamas:"Pigiami",
+navHouse:"La Maison",
+cart:"BORSA",
+eyebrow:"Pigiameria di Lusso Italiana",
+introTitle:"L'arte di vestirsi<br>per la notte.",
+introText:"Nata in Italia, SETA DI MEZZANOTTE crea raffinata lingerie da notte in seta, pizzo e tessuti pregiati.",
+newTitle:"Nuovi Arrivi",
+newSubtitle:"L'ultima collezione",
+add:"Aggiungi alla Borsa",
+nightEyebrow:"01 — Camicie da Notte",
+nightTitle:"Seta Dopo Mezzanotte",
+nightText:"Silhouette fluide. Artigianalità italiana. Femminilità assoluta.",
+nightTitle2:"Camicie da Notte",
+shopCollection:"Scopri la collezione",
+chemTitle:"Sulla Pelle",
+chemText:"Pizzo delicato e seta per serate intime.",
+chemTitle2:"Chemisier",
+robeTitle:"Luce del Mattino",
+robeText:"Lo strato più morbido tra notte e giorno.",
+robeTitle2:"Vestaglie",
+pajamaTitle:"L'Arte del Riposo",
+pajamaText:"Silhouette rilassate in preziosa seta italiana.",
+pajamaTitle2:"Pigiami",
+storyEyebrow:"La Maison Seta",
+storyTitle:"Un rituale privato,<br>Made in Italy.",
+storyText:"SETA DI MEZZANOTTE celebra la notte. Ogni creazione nasce dalla bellezza del movimento, dalla morbidezza della seta e dalla tradizione artigianale italiana.",
+newsletterEyebrow:"Accesso Privato",
+newsletterTitle:"Entra nel mondo Seta.",
+newsletterText:"Scopri in anteprima nuove collezioni e lanci privati.",
+subscribe:"ISCRIVITI",
+footerText:"PIGIAMERIA DI LUSSO ITALIANA",
+cartTitle:"La Tua Borsa",
+subtotal:"Subtotale",
+checkout:"Vai al Checkout",
+empty:"La tua borsa è vuota."
+},
+
+DE:{
+navNew:"Neuheiten",
+navNightgowns:"Nachthemden",
+navChemises:"Chemisen",
+navRobes:"Morgenmäntel",
+navPajamas:"Pyjamas",
+navHouse:"Das Haus",
+cart:"WARENKORB",
+eyebrow:"Italienische Luxus-Nachtwäsche",
+introTitle:"Die Kunst,<br>die Nacht zu kleiden.",
+introText:"SETA DI MEZZANOTTE steht für exquisite Nachtwäsche aus Seide, Spitze und feinsten Stoffen.",
+newTitle:"Neuheiten",
+newSubtitle:"Die neue Kollektion",
+add:"In den Warenkorb",
+nightEyebrow:"01 — Nachthemden",
+nightTitle:"Seide nach Mitternacht",
+nightText:"Fließende Silhouetten. Italienische Handwerkskunst. Pure Weiblichkeit.",
+nightTitle2:"Nachthemden",
+shopCollection:"Kollektion entdecken",
+chemTitle:"Auf der Haut",
+chemText:"Zarte Spitze und Seide für intime Abende.",
+chemTitle2:"Chemisen",
+robeTitle:"Morgenlicht",
+robeText:"Die weichste Verbindung zwischen Nacht und Tag.",
+robeTitle2:"Morgenmäntel",
+pajamaTitle:"Die Kunst der Ruhe",
+pajamaText:"Entspannte Silhouetten aus feinster italienischer Seide.",
+pajamaTitle2:"Pyjamas",
+storyEyebrow:"Das Haus Seta",
+storyTitle:"Ein privates Ritual,<br>Made in Italy.",
+storyText:"SETA DI MEZZANOTTE zelebriert die Nacht. Jedes Stück vereint Bewegung, weiche Seide und zeitlose italienische Handwerkskunst.",
+newsletterEyebrow:"Privater Zugang",
+newsletterTitle:"Willkommen in der Welt von Seta.",
+newsletterText:"Entdecken Sie neue Kollektionen und private Releases zuerst.",
+subscribe:"ANMELDEN",
+footerText:"ITALIENISCHE LUXUS-NACHTWÄSCHE",
+cartTitle:"Ihr Warenkorb",
+subtotal:"Zwischensumme",
+checkout:"Zur Kasse",
+empty:"Ihr Warenkorb ist leer."
+},
+
+FR:{
+navNew:"Nouveautés",
+navNightgowns:"Chemises de Nuit",
+navChemises:"Nuisettes",
+navRobes:"Peignoirs",
+navPajamas:"Pyjamas",
+navHouse:"La Maison",
+cart:"PANIER",
+eyebrow:"Lingerie de Nuit Italienne",
+introTitle:"L'art de s'habiller<br>pour la nuit.",
+introText:"SETA DI MEZZANOTTE crée une lingerie de nuit raffinée en soie, dentelle et matières précieuses.",
+newTitle:"Nouveautés",
+newSubtitle:"La nouvelle collection",
+add:"Ajouter au panier",
+nightEyebrow:"01 — Chemises de Nuit",
+nightTitle:"La Soie Après Minuit",
+nightText:"Silhouettes fluides. Savoir-faire italien. Féminité absolue.",
+nightTitle2:"Chemises de Nuit",
+shopCollection:"Découvrir la collection",
+chemTitle:"À Fleur de Peau",
+chemText:"Dentelle délicate et soie pour des soirées intimes.",
+chemTitle2:"Nuisettes",
+robeTitle:"Lumière du Matin",
+robeText:"La couche la plus douce entre la nuit et le jour.",
+robeTitle2:"Peignoirs",
+pajamaTitle:"L'Art du Repos",
+pajamaText:"Des silhouettes décontractées en soie italienne exceptionnelle.",
+pajamaTitle2:"Pyjamas",
+storyEyebrow:"La Maison Seta",
+storyTitle:"Un rituel privé,<br>Made in Italy.",
+storyText:"SETA DI MEZZANOTTE célèbre la nuit. Chaque pièce associe mouvement, douceur de la soie et savoir-faire italien.",
+newsletterEyebrow:"Accès Privé",
+newsletterTitle:"Entrez dans l'univers Seta.",
+newsletterText:"Découvrez en avant-première nos nouvelles collections.",
+subscribe:"S'INSCRIRE",
+footerText:"LINGERIE DE NUIT ITALIENNE",
+cartTitle:"Votre Panier",
+subtotal:"Sous-total",
+checkout:"Passer la commande",
+empty:"Votre panier est vide."
+},
+
+CZ:{
+navNew:"Novinky",
+navNightgowns:"Noční košilky",
+navChemises:"Košilky",
+navRobes:"Župany",
+navPajamas:"Pyžama",
+navHouse:"Náš příběh",
+cart:"KOŠÍK",
+eyebrow:"Italské luxusní noční prádlo",
+introTitle:"Umění oblékat se<br>na noc.",
+introText:"SETA DI MEZZANOTTE vytváří luxusní noční prádlo z hedvábí, krajky a nejjemnějších materiálů.",
+newTitle:"Novinky",
+newSubtitle:"Nejnovější kolekce",
+add:"Přidat do košíku",
+nightEyebrow:"01 — Noční košilky",
+nightTitle:"Hedvábí po setmění",
+nightText:"Splývavé siluety. Italské řemeslo. Absolutní ženskost.",
+nightTitle2:"Noční košilky",
+shopCollection:"Prohlédnout kolekci",
+chemTitle:"Blízko pokožce",
+chemText:"Jemná krajka a hedvábí vytvořené pro intimní večery.",
+chemTitle2:"Košilky",
+robeTitle:"Ranní světlo",
+robeText:"Nejjemnější vrstva mezi nocí a dnem.",
+robeTitle2:"Župany",
+pajamaTitle:"Umění odpočinku",
+pajamaText:"Uvolněné střihy z luxusního italského hedvábí.",
+pajamaTitle2:"Pyžama",
+storyEyebrow:"Dům Seta",
+storyTitle:"Soukromý rituál,<br>Made in Italy.",
+storyText:"SETA DI MEZZANOTTE je oslavou noci. Každý kousek spojuje krásu pohybu, jemnost hedvábí a nadčasové italské řemeslo.",
+newsletterEyebrow:"Privátní přístup",
+newsletterTitle:"Vstupte do světa Seta.",
+newsletterText:"Buďte první, kdo objeví nové kolekce a privátní uvedení.",
+subscribe:"PŘIHLÁSIT",
+footerText:"ITALSKÉ LUXUSNÍ NOČNÍ PRÁDLO",
+cartTitle:"Váš košík",
+subtotal:"Mezisoučet",
+checkout:"Pokračovat k platbě",
+empty:"Váš košík je prázdný."
+}
+
+};
 
 /* LANGUAGE */
-const lang=document.getElementById("language");
 
-function toggleLang(){
- lang.classList.toggle("open");
+let currentLanguage=localStorage.getItem("seta-language")||"EN";
+
+function applyLanguage(){
+
+const t=translations[currentLanguage];
+
+document.documentElement.lang=currentLanguage.toLowerCase();
+
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+if(t[el.dataset.i18n]!==undefined){
+el.innerHTML=t[el.dataset.i18n];
 }
-
-function setLang(code){
- document.getElementById("currentLang").textContent=code;
- lang.classList.remove("open");
-
- const translations={
-  EN:"English",
-  IT:"Italiano",
-  DE:"Deutsch",
-  FR:"Français",
-  CZ:"Čeština"
- };
-
- console.log("Language selected:",translations[code]);
-}
-
-document.addEventListener("click",(e)=>{
- if(!lang.contains(e.target)){
-  lang.classList.remove("open");
- }
 });
 
-/* VIDEO */
-const video=document.getElementById("heroVideo");
+document.getElementById("currentLang").textContent=currentLanguage;
 
-if(video){
-
- video.muted=true;
-
- const playVideo=()=>{
-  video.play().catch(()=>{});
- };
-
- playVideo();
-
- video.addEventListener("loadeddata",playVideo);
-
- document.addEventListener("visibilitychange",()=>{
-  if(!document.hidden) playVideo();
- });
+renderCart();
 
 }
+
+function toggleLang(){
+document.getElementById("language").classList.toggle("open");
+}
+
+function setLang(lang){
+
+currentLanguage=lang;
+
+localStorage.setItem("seta-language",lang);
+
+applyLanguage();
+
+document.getElementById("language").classList.remove("open");
+
+}
+
+document.addEventListener("click",e=>{
+const lang=document.getElementById("language");
+if(!lang.contains(e.target)){
+lang.classList.remove("open");
+}
+});
+
+/* HEADER */
+
+window.addEventListener("scroll",()=>{
+document.getElementById("header")
+.classList.toggle("scrolled",window.scrollY>40);
+});
+
+/* CART */
+
+let cart=JSON.parse(localStorage.getItem("seta-cart")||"[]");
+
+function saveCart(){
+localStorage.setItem("seta-cart",JSON.stringify(cart));
+}
+
+function addToCart(name,price,image){
+
+const existing=cart.find(item=>item.name===name);
+
+if(existing){
+existing.qty++;
+}else{
+cart.push({
+name,
+price,
+image,
+qty:1
+});
+}
+
+saveCart();
+renderCart();
+openCart();
+
+}
+
+function renderCart(){
+
+const container=document.getElementById("cartItems");
+const count=document.getElementById("cartCount");
+const total=document.getElementById("cartTotal");
+
+if(!container)return;
+
+const itemCount=cart.reduce((sum,item)=>sum+item.qty,0);
+
+count.textContent=itemCount;
+
+if(!cart.length){
+
+container.innerHTML=`
+<div class="cart-empty">
+${translations[currentLanguage].empty}
+</div>`;
+
+total.textContent="€0";
+
+return;
+
+}
+
+container.innerHTML=cart.map((item,index)=>`
+
+<div class="cart-item">
+
+<img src="${item.image}">
+
+<div>
+
+<div class="cart-item-name">${item.name}</div>
+
+<div class="cart-item-price">
+€${item.price}
+</div>
+
+<div class="quantity">
+
+<button onclick="changeQty(${index},-1)">−</button>
+
+<span>${item.qty}</span>
+
+<button onclick="changeQty(${index},1)">+</button>
+
+</div>
+
+<button class="remove"
+onclick="removeItem(${index})">
+REMOVE
+</button>
+
+</div>
+
+<div class="cart-item-total">
+€${item.price*item.qty}
+</div>
+
+</div>
+
+`).join("");
+
+const sum=cart.reduce((total,item)=>{
+return total+(item.price*item.qty);
+},0);
+
+total.textContent="€"+sum.toLocaleString("de-DE");
+
+}
+
+function changeQty(index,amount){
+
+cart[index].qty+=amount;
+
+if(cart[index].qty<=0){
+cart.splice(index,1);
+}
+
+saveCart();
+renderCart();
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+saveCart();
+renderCart();
+
+}
+
+function openCart(){
+
+document.getElementById("cartDrawer").classList.add("open");
+document.getElementById("cartOverlay").classList.add("open");
+
+}
+
+function closeCart(){
+
+document.getElementById("cartDrawer").classList.remove("open");
+document.getElementById("cartOverlay").classList.remove("open");
+
+}
+
+function checkout(){
+
+if(!cart.length){
+
+alert(translations[currentLanguage].empty);
+
+return;
+
+}
+
+alert(
+"Checkout integration ready — Stripe / PayPal can be connected here."
+);
+
+}
+
+/* NEWSLETTER */
+
+function subscribe(e){
+
+e.preventDefault();
+
+const email=document.getElementById("emailInput").value;
+
+alert("Thank you — "+email);
+
+e.target.reset();
+
+}
+
+/* INIT */
+
+applyLanguage();
 
 </script>
 
 </body>
 </html>
-
